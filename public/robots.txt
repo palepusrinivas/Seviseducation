@@ -1,0 +1,65 @@
+# Sevis Global Education - Robots.txt
+# https://sevisedu.com/robots.txt
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap Location
+Sitemap: https://sevisedu.com/sitemap.xml
+
+# Crawl Delay (optional - helps manage server load)
+Crawl-delay: 1
+
+# Specific Bot Rules
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Host Declaration (helps search engines)
+Host: https://sevisedu.com
