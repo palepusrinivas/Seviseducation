@@ -6,12 +6,13 @@ import slider2 from "../assest/slider2.jpg";
 import slider3 from "../assest/slider3.jpg";
 import slider4 from "../assest/student-doing-the-test-exam-2022-12-15-23-22-34-utc-min-scaled.jpg";
 
+
 const slides = [
   {
     id: 1,
-    tag: "Global Education Partner",
+    // tag: "Global Education Partner",
     title: "Your Gateway to World-Class Universities",
-    subtitle: "Expert guidance for studying in USA, UK, Canada and Australia",
+    subtitle: "Expert guidance for studying in USA, UK, UAE and Australia",
     description: "We provide comprehensive visa assistance, complete documentation support, and personalized counseling to transform your study abroad dreams into reality.",
     image: slider1,
     stats: [
@@ -22,20 +23,20 @@ const slides = [
   },
   {
     id: 2,
-    tag: "Expert Counseling",
+    // tag: "Expert Counseling",
     title: "Shape Your International Academic Career",
     subtitle: "Personalized guidance from application to visa approval",
     description: "Our experienced counselors work with you at every step - from selecting the perfect university to securing your student visa with confidence.",
     image: slider2,
     stats: [
-      { value: "15+", label: "Years Experience" },
+      { value: "11+", label: "Years Experience" },
       { value: "100%", label: "Client Satisfaction" },
       { value: "24/7", label: "Support Available" }
     ]
   },
   {
     id: 3,
-    tag: "Visa Success Specialists",
+    // tag: "Visa Success Specialists",
     title: "Excellence in Study Abroad Solutions",
     subtitle: "Your trusted partner for seamless international education",
     description: "From documentation to mock interviews, we ensure your complete preparedness for visa success with our proven methodology and expert coaching.",
@@ -48,7 +49,7 @@ const slides = [
   },
   {
     id: 4,
-    tag: "Test Preparation Excellence",
+    // tag: "Test Preparation Excellence",
     title: "Ace Your IELTS, TOEFL & Admission Tests",
     subtitle: "Comprehensive test prep and coaching for study abroad success",
     description: "Master IELTS, TOEFL, GRE, GMAT, and SAT with our expert coaching programs. We provide personalized training to help you achieve your target scores.",
@@ -252,7 +253,7 @@ export default function Hero() {
               <div className="max-w-4xl">
                 
                 {/* Professional Tag */}
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.35, type: "spring", stiffness: 200 }}
@@ -264,14 +265,14 @@ export default function Hero() {
                       {slides[currentSlide].tag}
                     </span>
                   </span>
-                </motion.div>
+                </motion.div> */}
 
                 {/* Professional Title - Clean White */}
                 <motion.h1
                   initial={{ opacity: 0, y: 25 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold text-white mb-4 leading-tight tracking-tight"
                   style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
                 >
                   {slides[currentSlide].title}
@@ -329,12 +330,22 @@ export default function Hero() {
                   </motion.button>
                 </motion.div>
 
+                {/* Extended Horizontal Line beneath buttons */}
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.4, delay: 0.24 }}
+                  className="mb-6 md:mb-8 -mx-4 sm:-mx-6 md:-mx-10 lg:-mx-16 xl:-mx-20"
+                >
+                  <div className="h-0.5 md:h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full"></div>
+                </motion.div>
+
                 {/* Statistics - Professional White */}
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.25 }}
-                  className="grid grid-cols-3 gap-4 md:gap-6 pt-5 border-t-2 border-white/20"
+                  className="grid grid-cols-3 gap-4 md:gap-6"
                 >
                   {slides[currentSlide].stats.map((stat, idx) => (
                     <motion.div
@@ -405,13 +416,13 @@ export default function Hero() {
             </motion.button>
           ))}
         </div>
-        <div className="px-4 py-1.5 bg-black/30 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
+        {/* <div className="mt-4 px-4 py-1.5 bg-black/30 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
           <span className="font-semibold text-xs">
             <span className="text-white">{currentSlide + 1}</span>
             <span className="text-gray-400 mx-1.5">/</span>
             <span className="text-gray-300">{slides.length}</span>
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,17 +14,23 @@
   }
 
   body {
-    @apply font-body text-textPrimary w-full;
+    @apply font-sans font-body text-textPrimary w-full;
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     position: relative;
+    font-family: 'Bai Jamjuree', sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading font-sans;
+    font-family: 'Bai Jamjuree', sans-serif;
+  }
+  
+  p, span, div, a, button, input, textarea, select, label, li {
+    font-family: 'Bai Jamjuree', sans-serif;
   }
 
   /* Prevent all elements from creating horizontal overflow */

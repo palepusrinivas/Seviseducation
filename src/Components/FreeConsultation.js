@@ -116,7 +116,7 @@ const FreeConsultation = () => {
       <TrustIndicators />
 
       {/* Why Book Section */}
-      <WhyBookSection />
+      {/* <WhyBookSection /> */}
 
       {/* Main Form Section */}
       <FormSection 
@@ -131,13 +131,13 @@ const FreeConsultation = () => {
       />
 
       {/* Benefits Section */}
-      <BenefitsSection />
+      {/* <BenefitsSection /> */}
 
       {/* Success Stories */}
-      <SuccessStories />
+      {/* <SuccessStories /> */}
 
       {/* Contact Info */}
-      <ContactInfo />
+      {/* <ContactInfo /> */}
 
       {/* FAQ Section */}
       <FAQSection />
@@ -202,13 +202,13 @@ const HeroSection = () => {
               transition={{ duration: 0.8 }}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-6">
+              {/* <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-6">
                 <Sparkles className="w-5 h-5 text-accent" />
                 <span className="text-white font-semibold">100% Free Consultation</span>
                 <Star className="w-5 h-5 text-accent" />
-              </div>
+              </div> */}
 
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-6 leading-tight">
                 Start Your <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Dream Journey</span> Today
               </h1>
 
@@ -396,7 +396,7 @@ const WhyBookSection = () => {
           className="text-center mb-16"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Why Book a <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Free Consultation?</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -484,7 +484,7 @@ const FormSection = ({ register, handleSubmit, onSubmit, errors, isSubmitting, s
             {/* Contact Cards */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Phone, text: "+91 9256-9256-45", label: "Call Us" },
+                { icon: Phone, text: "+91 9256-9256-49", label: "Call Us" },
                 { icon: Mail, text: "info@sevisedu.com", label: "Email Us" }
               ].map((contact, index) => (
                 <div key={index} className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all group">
@@ -695,31 +695,33 @@ const FormSection = ({ register, handleSubmit, onSubmit, errors, isSubmitting, s
                   <textarea
                     {...register("message")}
                     rows={4}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
+                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                     placeholder="Any specific questions or requirements..."
                   />
                 </div>
 
                 {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      Book Free Consultation
-                      <ArrowRight className="w-5 h-5" />
-                    </>
-                  )}
-                </motion.button>
+                <div className="flex justify-center">
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Book Free Consultation
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
+                  </motion.button>
+                </div>
 
                 {/* Privacy Note */}
                 <p className="text-xs text-gray-500 text-center">
@@ -772,33 +774,27 @@ const BenefitsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          data-aos="fade-up"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             What Makes Our <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Consultation</span> Special?
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             More than just advice - we provide a comprehensive roadmap to your study abroad success
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-primary/20"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              whileHover={{ y: -10 }}
+              className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-100"
             >
-              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all">
+              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
                 <benefit.icon className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
               <p className="text-gray-600">{benefit.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -862,7 +858,7 @@ const SuccessStories = () => {
           className="text-center mb-16"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
             Student <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Success Stories</span>
           </h2>
           <p className="text-gray-300 text-lg">
@@ -912,9 +908,9 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: "Call Us",
-      info: "+91 9256-9256-45",
+      info: "+91 9256-9256-49",
       subInfo: "Mon-Sat: 9 AM - 7 PM",
-      action: "tel:+919256925645"
+      action: "tel:+919256925649"
     },
     {
       icon: Mail,
@@ -993,7 +989,7 @@ const FAQSection = () => {
           className="text-center mb-16"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Frequently Asked <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Questions</span>
           </h2>
           <p className="text-gray-600 text-lg">

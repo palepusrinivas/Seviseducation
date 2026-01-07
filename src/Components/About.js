@@ -46,7 +46,7 @@ const About = () => {
       <HeroSection />
 
       {/* Trust Banner */}
-      <TrustBanner />
+      {/* <TrustBanner /> */}
 
       {/* Story Section */}
       <StorySection />
@@ -64,16 +64,17 @@ const About = () => {
       <SuccessMetrics />
 
       {/* Enhanced Team Section */}
-      <TeamSection 
+      {/* <TeamSection 
         hoveredMember={hoveredMember}
         setHoveredMember={setHoveredMember}
-      />
+      /> */}
 
       {/* Student Journey */}
-      <StudentJourney />
+      {/* <StudentJourney /> */}
 
       {/* Services Showcase */}
       <ServicesShowcase activeTab={activeTab} setActiveTab={setActiveTab} />
+
 
       {/* Testimonials Banner */}
       <TestimonialsBanner />
@@ -88,7 +89,7 @@ const About = () => {
       <AwardsSection />
 
       {/* Counter Section */}
-      <Counter />
+      {/* <Counter /> */}
 
       {/* Final CTA */}
       <FinalCTA />
@@ -144,21 +145,20 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="mb-6 mt-20"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-6">
+          <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 mb-6">
             <Sparkles className="w-5 h-5 text-accent" />
-            <span className="text-white font-semibold">Trusted by 10,000+ Students Worldwide</span>
             <Star className="w-5 h-5 text-accent" />
           </div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.h1 
-          className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-5xl md:text-6xl lg:text-4xl font-bold text-white mb-6 leading-tight"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -173,7 +173,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          15+ years of excellence in making international education accessible, affordable, and achievable for every student
+          11+ years of excellence in making international education accessible, affordable, and achievable for every student
         </motion.p>
 
         {/* Breadcrumb */}
@@ -183,11 +183,11 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <NavLink to="/" className="hover:text-accent transition-colors no-underline text-white/80 hover:text-white">
+          {/* <NavLink to="/" className="hover:text-accent transition-colors no-underline text-white/80 hover:text-white">
             Home
-          </NavLink>
-          <ChevronRight className="w-4 h-4" />
-          <span className="text-accent font-semibold">About Us</span>
+          </NavLink> */}
+          {/* <ChevronRight className="w-4 h-4" /> */}
+          {/* <span className="text-accent font-semibold">About Us</span> */}
         </motion.div>
 
         {/* CTA Buttons */}
@@ -208,14 +208,14 @@ const HeroSection = () => {
             </motion.button>
           </NavLink>
 
-          <motion.button
-            className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/30 hover:bg-white hover:text-gray-900 transition-all duration-300 flex items-center gap-2"
+          {/* <motion.button
+            className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/30  hover:text-gray-900 transition-all duration-300 flex items-center gap-2"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             <Play className="w-5 h-5" />
             Watch Our Story
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
     </section>
@@ -225,7 +225,7 @@ const HeroSection = () => {
 // Trust Banner
 const TrustBanner = () => {
   const trustStats = [
-    { icon: Trophy, label: "Industry Awards", value: "25+" },
+    { icon: Trophy, label: "Industry Awards", value: "11+" },
     { icon: Users, label: "Students Placed", value: "10,000+" },
     { icon: Globe, label: "Countries", value: "50+" },
     { icon: Star, label: "Success Rate", value: "99%" }
@@ -311,7 +311,7 @@ const StorySection = () => {
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-3xl font-bold text-gray-900">15+</h4>
+                    <h4 className="text-3xl font-bold text-gray-900">11+</h4>
                     <p className="text-gray-600 text-sm">Years Excellence</p>
                   </div>
                 </div>
@@ -343,11 +343,11 @@ const StorySection = () => {
             data-aos="fade-left"
           >
             <div>
-              <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full text-primary font-bold text-sm mb-4">
+              {/* <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full text-primary font-bold text-sm mb-4">
                 🌟 OUR STORY
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                Building <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Educational Bridges</span> Since 2008
+              </span> */}
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                Building <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Educational Bridges</span>
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
                 What started as a dream to make international education accessible has grown into a trusted global education consultancy, helping thousands of students achieve their aspirations of studying abroad.
@@ -379,8 +379,8 @@ const StorySection = () => {
             </div>
 
             {/* CTA */}
-            <div className="pt-6">
-              <NavLink to="/Contact">
+            <div className="pt-2">
+              {/* <NavLink to="/Contact">
                 <motion.button
                   className="group px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center gap-2"
                   whileHover={{ scale: 1.05 }}
@@ -389,7 +389,7 @@ const StorySection = () => {
                   Start Your Journey
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-              </NavLink>
+              </NavLink> */}
             </div>
           </motion.div>
         </div>
@@ -418,13 +418,12 @@ const MissionVision = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-8 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
-          data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Our <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Purpose</span> & <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">Direction</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -437,18 +436,15 @@ const MissionVision = () => {
             <motion.div
               key={index}
               className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
-              data-aos="fade-up"
-              data-aos-delay={index * 200}
-              whileHover={{ y: -10 }}
             >
               {/* Background Image */}
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-80 group-hover:opacity-90 transition-opacity`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-80 group-hover:opacity-30 transition-opacity`} />
                 
                 {/* Icon */}
                 <div className="absolute top-8 left-8 w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border-2 border-white/30">
@@ -474,6 +470,65 @@ const MissionVision = () => {
 
 // Core Values
 const CoreValues = () => {
+  // Lock all card positions continuously
+  useEffect(() => {
+    const lockCardPositions = () => {
+      const cards = document.querySelectorAll('.core-values-card');
+      cards.forEach((card) => {
+        if (card) {
+          card.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+          card.style.setProperty('transition', 'none', 'important');
+          card.style.setProperty('animation', 'none', 'important');
+          card.style.setProperty('top', '0', 'important');
+          card.style.setProperty('bottom', 'auto', 'important');
+          card.style.setProperty('margin-top', '0', 'important');
+          card.style.setProperty('margin-bottom', '0', 'important');
+        }
+      });
+      
+      // Lock icon positions
+      const icons = document.querySelectorAll('.core-values-icon');
+      icons.forEach((icon) => {
+        if (icon) {
+          icon.style.setProperty('transform', 'translateY(0) translateX(0) scale(1) rotate(0)', 'important');
+          icon.style.setProperty('transition', 'none', 'important');
+        }
+      });
+    };
+
+    // Lock immediately
+    lockCardPositions();
+    
+    // Lock on every frame to prevent any movement
+    const interval = setInterval(lockCardPositions, 16); // ~60fps
+    
+    // Also lock on mouse events
+    const cards = document.querySelectorAll('.core-values-card');
+    const handleMouseEvents = (e) => {
+      const card = e.currentTarget;
+      if (card) {
+        card.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+        card.style.setProperty('transition', 'none', 'important');
+        card.style.setProperty('top', '0', 'important');
+      }
+    };
+    
+    cards.forEach((card) => {
+      card.addEventListener('mouseenter', handleMouseEvents);
+      card.addEventListener('mousemove', handleMouseEvents);
+      card.addEventListener('mouseleave', handleMouseEvents);
+    });
+
+    return () => {
+      clearInterval(interval);
+      cards.forEach((card) => {
+        card.removeEventListener('mouseenter', handleMouseEvents);
+        card.removeEventListener('mousemove', handleMouseEvents);
+        card.removeEventListener('mouseleave', handleMouseEvents);
+      });
+    };
+  }, []);
+
   const values = [
     {
       icon: Shield,
@@ -514,57 +569,114 @@ const CoreValues = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
-            }}
-            animate={{
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.5, 1]
-            }}
-            transition={{
-              duration: 3 + Math.random(),
-              repeat: Infinity,
-              delay: Math.random() * 2
-            }}
-          />
-        ))}
-      </div>
+    <section className="core-values-section relative py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
+      {/* Prevent all card animations with global styles */}
+      <style>{`
+        /* Disable AOS animations for this section */
+        .core-values-section [data-aos],
+        .core-values-section [data-aos].aos-animate,
+        .core-values-section [data-aos].aos-init {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          animation: none !important;
+          visibility: visible !important;
+        }
+        /* Prevent ALL card movement - Ultra aggressive */
+        .core-values-section .core-values-card,
+        .core-values-section .core-values-card:hover,
+        .core-values-section .core-values-card:focus,
+        .core-values-section .core-values-card:active {
+          transform: translateY(0) !important translateX(0) !important scale(1) !important;
+          transition: none !important;
+          animation: none !important;
+          will-change: auto !important;
+          top: 0 !important;
+          bottom: auto !important;
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+          position: relative !important;
+        }
+        .core-values-section .core-values-card *,
+        .core-values-section .core-values-card:hover * {
+          transform: translateY(0) !important translateX(0) !important scale(1) !important;
+          transition: none !important;
+          animation: none !important;
+        }
+        .core-values-section .core-values-card .core-values-icon,
+        .core-values-section .core-values-card:hover .core-values-icon {
+          transform: translateY(0) translateX(0) scale(1) rotate(0) !important;
+          transition: none !important;
+        }
+      `}</style>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <motion.div 
+        <div 
           className="text-center mb-16"
-          data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Core <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Values</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             The principles that guide everything we do and every decision we make
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((value, index) => (
-            <motion.div
+            <div
               key={index}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-white/30 transition-all duration-500 overflow-hidden"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              whileHover={{ y: -10, scale: 1.02 }}
+              className="core-values-card group relative bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-white/30 overflow-hidden"
+              style={{
+                transform: 'translateY(0) translateX(0) scale(1) !important',
+                transition: 'none !important',
+                animation: 'none !important',
+                willChange: 'auto',
+                position: 'relative !important',
+                top: '0 !important',
+                bottom: 'auto !important',
+                marginTop: '0 !important',
+                marginBottom: '0 !important'
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                el.style.setProperty('transition', 'none', 'important');
+                el.style.setProperty('top', '0', 'important');
+                el.style.setProperty('bottom', 'auto', 'important');
+                el.style.setProperty('margin-top', '0', 'important');
+                el.style.setProperty('margin-bottom', '0', 'important');
+              }}
+              onMouseMove={(e) => {
+                const el = e.currentTarget;
+                el.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                el.style.setProperty('top', '0', 'important');
+                el.style.setProperty('margin-top', '0', 'important');
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                el.style.setProperty('top', '0', 'important');
+                el.style.setProperty('bottom', 'auto', 'important');
+                el.style.setProperty('margin-top', '0', 'important');
+                el.style.setProperty('margin-bottom', '0', 'important');
+              }}
             >
               {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10`} style={{ transition: 'none !important' }} />
 
               {/* Icon */}
-              <div className={`w-16 h-16 mb-6 bg-gradient-to-br ${value.color} rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative z-10`}>
+              <div 
+                className={`core-values-icon w-16 h-16 mb-6 bg-gradient-to-br ${value.color} rounded-xl flex items-center justify-center relative z-10`}
+                style={{
+                  transform: 'translateY(0) translateX(0) scale(1) rotate(0) !important',
+                  transition: 'none !important'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0) translateX(0) scale(1) rotate(0)', 'important');
+                  e.currentTarget.style.setProperty('transition', 'none', 'important');
+                }}
+              >
                 <value.icon className="w-8 h-8 text-white" />
               </div>
 
@@ -577,8 +689,8 @@ const CoreValues = () => {
               </p>
 
               {/* Decorative */}
-              <div className={`absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br ${value.color} opacity-5 rounded-full group-hover:opacity-20 group-hover:scale-150 transition-all duration-700`} />
-            </motion.div>
+              <div className={`absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br ${value.color} opacity-5 rounded-full`} style={{ transition: 'none !important' }} />
+            </div>
           ))}
         </div>
       </div>
@@ -588,6 +700,65 @@ const CoreValues = () => {
 
 // Why Choose Section
 const WhyChooseSection = () => {
+  // Lock all card positions continuously
+  useEffect(() => {
+    const lockCardPositions = () => {
+      const cards = document.querySelectorAll('.why-choose-card');
+      cards.forEach((card) => {
+        if (card) {
+          card.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+          card.style.setProperty('transition', 'none', 'important');
+          card.style.setProperty('animation', 'none', 'important');
+          card.style.setProperty('top', '0', 'important');
+          card.style.setProperty('bottom', 'auto', 'important');
+          card.style.setProperty('margin-top', '0', 'important');
+          card.style.setProperty('margin-bottom', '0', 'important');
+        }
+      });
+      
+      // Lock icon positions
+      const icons = document.querySelectorAll('.why-choose-icon');
+      icons.forEach((icon) => {
+        if (icon) {
+          icon.style.setProperty('transform', 'translateY(0) translateX(0) scale(1) rotate(0)', 'important');
+          icon.style.setProperty('transition', 'none', 'important');
+        }
+      });
+    };
+
+    // Lock immediately
+    lockCardPositions();
+    
+    // Lock on every frame to prevent any movement
+    const interval = setInterval(lockCardPositions, 16); // ~60fps
+    
+    // Also lock on mouse events
+    const cards = document.querySelectorAll('.why-choose-card');
+    const handleMouseEvents = (e) => {
+      const card = e.currentTarget;
+      if (card) {
+        card.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+        card.style.setProperty('transition', 'none', 'important');
+        card.style.setProperty('top', '0', 'important');
+      }
+    };
+    
+    cards.forEach((card) => {
+      card.addEventListener('mouseenter', handleMouseEvents);
+      card.addEventListener('mousemove', handleMouseEvents);
+      card.addEventListener('mouseleave', handleMouseEvents);
+    });
+
+    return () => {
+      clearInterval(interval);
+      cards.forEach((card) => {
+        card.removeEventListener('mouseenter', handleMouseEvents);
+        card.removeEventListener('mousemove', handleMouseEvents);
+        card.removeEventListener('mouseleave', handleMouseEvents);
+      });
+    };
+  }, []);
+
   const benefits = [
     {
       icon: CheckCircle,
@@ -598,8 +769,8 @@ const WhyChooseSection = () => {
     {
       icon: Users,
       title: "Expert Counselors",
-      description: "Team of certified counselors with 15+ years of experience in international education consulting",
-      stats: "15+ Years Experience"
+      description: "Team of certified counselors with 11+ years of experience in international education consulting",
+      stats: "11+ Years Experience"
     },
     {
       icon: DollarSign,
@@ -628,34 +799,114 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="why-choose-section py-20 bg-white">
+      {/* Prevent all card animations with global styles */}
+      <style>{`
+        /* Disable AOS animations for this section */
+        .why-choose-section [data-aos],
+        .why-choose-section [data-aos].aos-animate,
+        .why-choose-section [data-aos].aos-init {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          animation: none !important;
+          visibility: visible !important;
+        }
+        /* Prevent ALL card movement - Ultra aggressive */
+        .why-choose-section .why-choose-card,
+        .why-choose-section .why-choose-card:hover,
+        .why-choose-section .why-choose-card:focus,
+        .why-choose-section .why-choose-card:active {
+          transform: translateY(0) !important translateX(0) !important scale(1) !important;
+          transition: none !important;
+          animation: none !important;
+          will-change: auto !important;
+          top: 0 !important;
+          bottom: auto !important;
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+          position: relative !important;
+        }
+        .why-choose-section .why-choose-card *,
+        .why-choose-section .why-choose-card:hover * {
+          transform: translateY(0) !important translateX(0) !important scale(1) !important;
+          transition: none !important;
+          animation: none !important;
+        }
+        .why-choose-section .why-choose-card .why-choose-icon,
+        .why-choose-section .why-choose-card:hover .why-choose-icon {
+          transform: translateY(0) translateX(0) scale(1) rotate(0) !important;
+          transition: none !important;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4">
-        <motion.div 
+        <div 
           className="text-center mb-16"
-          data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Why <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">10,000+ Students</span> Choose Us
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             We don't just help you study abroad—we ensure your success at every step with unmatched expertise and dedication
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-primary/20 overflow-hidden"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              whileHover={{ y: -10 }}
+              className="why-choose-card group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl border-2 border-transparent hover:border-primary/20 overflow-hidden"
+              style={{
+                transform: 'translateY(0) translateX(0) scale(1) !important',
+                transition: 'none !important',
+                animation: 'none !important',
+                willChange: 'auto',
+                position: 'relative !important',
+                top: '0 !important',
+                bottom: 'auto !important',
+                marginTop: '0 !important',
+                marginBottom: '0 !important'
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                el.style.setProperty('transition', 'none', 'important');
+                el.style.setProperty('top', '0', 'important');
+                el.style.setProperty('bottom', 'auto', 'important');
+                el.style.setProperty('margin-top', '0', 'important');
+                el.style.setProperty('margin-bottom', '0', 'important');
+              }}
+              onMouseMove={(e) => {
+                const el = e.currentTarget;
+                el.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                el.style.setProperty('top', '0', 'important');
+                el.style.setProperty('margin-top', '0', 'important');
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                el.style.setProperty('top', '0', 'important');
+                el.style.setProperty('bottom', 'auto', 'important');
+                el.style.setProperty('margin-top', '0', 'important');
+                el.style.setProperty('margin-bottom', '0', 'important');
+              }}
             >
               {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100" style={{ transition: 'none !important' }} />
 
               {/* Icon */}
-              <div className="w-16 h-16 mb-6 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 relative z-10">
+              <div 
+                className="why-choose-icon w-16 h-16 mb-6 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center relative z-10"
+                style={{
+                  transform: 'translateY(0) translateX(0) scale(1) rotate(0) !important',
+                  transition: 'none !important'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0) translateX(0) scale(1) rotate(0)', 'important');
+                  e.currentTarget.style.setProperty('transition', 'none', 'important');
+                }}
+              >
                 <benefit.icon className="w-8 h-8 text-white" />
               </div>
 
@@ -673,8 +924,8 @@ const WhyChooseSection = () => {
               </div>
 
               {/* Decorative Corner */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary to-secondary opacity-5 rounded-full group-hover:opacity-10 transition-opacity" />
-            </motion.div>
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary to-secondary opacity-5 rounded-full" style={{ transition: 'none !important' }} />
+            </div>
           ))}
         </div>
       </div>
@@ -689,7 +940,7 @@ const SuccessMetrics = () => {
     { number: "10,000+", label: "Students Placed", icon: Users },
     { number: "500+", label: "Partner Universities", icon: Building2 },
     { number: "50+", label: "Countries Covered", icon: Globe },
-    { number: "15+", label: "Years Experience", icon: Award },
+    { number: "11+", label: "Years Experience", icon: Award },
     { number: "100%", label: "Client Satisfaction", icon: Heart }
   ];
 
@@ -723,7 +974,7 @@ const SuccessMetrics = () => {
           className="text-center mb-12"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Success in Numbers
           </h2>
           <p className="text-white/90 text-lg">
@@ -968,7 +1219,6 @@ const StudentJourney = () => {
       <div className="max-w-7xl mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
-          data-aos="fade-up"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Your <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Success Journey</span> with Sevis
@@ -983,8 +1233,6 @@ const StudentJourney = () => {
             <motion.div
               key={index}
               className="relative group"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
             >
               <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-transparent overflow-hidden h-full">
                 {/* Gradient Border Effect */}
@@ -1078,7 +1326,7 @@ const ServicesShowcase = ({ activeTab, setActiveTab }) => {
           className="text-center mb-12"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Comprehensive <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-gray-600 text-lg">
@@ -1126,14 +1374,14 @@ const ServicesShowcase = ({ activeTab, setActiveTab }) => {
                 <p className="text-gray-600 text-lg mb-6">
                   Professional support to ensure every aspect of your application is perfect
                 </p>
-                <NavLink to="/Contact">
+                {/* <NavLink to="/Contact">
                   <motion.button
                     className="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
                     whileHover={{ scale: 1.05 }}
                   >
                     Learn More
                   </motion.button>
-                </NavLink>
+                </NavLink> */}
               </div>
 
               {/* Right - Features */}
@@ -1282,7 +1530,7 @@ const GlobalNetwork = () => {
           className="text-center mb-16"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Our <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Global Network</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -1315,7 +1563,7 @@ const GlobalNetwork = () => {
           className="text-center mt-12"
           data-aos="fade-up"
         >
-          <NavLink to="/Contact">
+          {/* <NavLink to="/Contact">
             <motion.button
               className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-full shadow-lg hover:shadow-2xl transition-all flex items-center gap-2 mx-auto"
               whileHover={{ scale: 1.05 }}
@@ -1324,9 +1572,9 @@ const GlobalNetwork = () => {
               Explore Global Opportunities
               <ArrowRight className="w-5 h-5" />
             </motion.button>
-          </NavLink>
+          </NavLink> */}
         </motion.div>
-      </div>
+    </div>
     </section>
   );
 };
@@ -1357,15 +1605,15 @@ const TechnologySection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-6 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Content */}
           <motion.div data-aos="fade-right">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full text-primary font-bold text-sm mb-4">
+            {/* <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full text-primary font-bold text-sm mb-4">
               🚀 INNOVATION
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            </span> */}
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Technology-Driven <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Solutions</span>
             </h2>
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -1437,13 +1685,13 @@ const AwardsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
           data-aos="fade-up"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Awards & <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Recognition</span>
           </h2>
           <p className="text-gray-600 text-lg">
@@ -1453,20 +1701,17 @@ const AwardsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {awards.map((award, index) => (
-            <motion.div
+            <div
               key={index}
-              className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 text-center overflow-hidden"
+              className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 text-center border border-gray-100"
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              whileHover={{ y: -10 }}
             >
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              
-              <Trophy className="w-16 h-16 mx-auto mb-4 text-accent transform group-hover:scale-110 group-hover:rotate-12 transition-all" />
-              <h3 className="text-3xl font-bold text-primary mb-2">{award.year}</h3>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">{award.title}</h4>
+              <Trophy className="w-14 h-14 mx-auto mb-5 text-primary" />
+              <h3 className="text-3xl font-bold text-primary mb-3">{award.year}</h3>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2 leading-tight">{award.title}</h4>
               <p className="text-gray-600 text-sm">{award.org}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -1512,14 +1757,14 @@ const FinalCTA = () => {
             <Rocket className="w-10 h-10 text-white" />
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Ready to Transform Your<br />
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Study Abroad Dreams?
             </span>
           </h2>
           
-          <p className="text-gray-300 text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+          <p className="text-gray-300 text-base md:text-lg mb-12 max-w-3xl mx-auto">
             Join 10,000+ successful students who trusted Sevis Global to make their international education dreams come true
           </p>
 
@@ -1538,7 +1783,7 @@ const FinalCTA = () => {
 
             <NavLink to="/Contact">
               <motion.button
-                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/30 hover:bg-white hover:text-gray-900 transition-all duration-300 flex items-center gap-2 justify-center"
+                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/30 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 justify-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -1552,7 +1797,7 @@ const FinalCTA = () => {
           <div className="grid grid-cols-3 gap-6 pt-16 border-t border-white/10 mt-16">
             {[
               { icon: Shield, text: "100% Secure" },
-              { icon: Award, text: "15+ Years Trusted" },
+              { icon: Award, text: "11+ Years Trusted" },
               { icon: Heart, text: "Student First" }
             ].map((item, index) => (
               <div key={index} className="flex flex-col items-center gap-2">

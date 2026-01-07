@@ -20,34 +20,49 @@ import CourseCurriculum from './CourseCurriculum';
 import AustraliaUniversities from './AustraliaUniversities';
 import USACanada from './USACanada';
 import FreeConsultation from './FreeConsultation';
+import Immigration from './Immigration';
+import Blogs from './Blogs';
+import UnitedArabEmiratesstudentvisa from './UnitedArabEmiratesstudentvisa';
+import UnitedArabEmiratesUniversities from './UnitedArabEmiratesUniversities';
+import TermsOfService from './TermsOfService';
+import PrivacyPolicy from './PrivacyPolicy';
 
 
 const Routing = () => {
   return (
     
   <Routes>
-    <Route path='/'       Component={Home} />
-    <Route path='/About'  Component={About} />
-    <Route path='/Unitedkingdom' Component={Unitedkingdom} />
-    <Route path='/Australiastudentvisa' Component={Australiastudentvisa} />
-    <Route path='/UnitedStateofAmerica' Component={UnitedStateofAmerica} />
-    <Route path='/Ukuniversities' Component={Ukuniversities} />
-    <Route path='/USAUniversities' Component={USAUniversities} /> 
-    <Route path='AustraliaUniversities' Component={AustraliaUniversities} />
-    <Route path='/GRE'  Component={GRE} />
-    <Route path='/GMAT'  Component={GMAT} />
-    <Route path='/IELTS'  Component={IELTS} />
-    <Route path='/TOEFL'  Component={TOEFL} />
-    <Route path='/PTE'  Component={PTE} />
-    <Route path='/SATEXAM'  Component={SATEXAM} />
-    <Route path='/DUOLINGO' Component={DUOLINGO} />
-    <Route path='/OVERPIOLTTRAINING' Component={OVERPILOTTRAINING} />
-    <Route path='/CourseCurriculum' Component={CourseCurriculum} />
-    <Route path='/Contact'  Component={Contact} />
-    <Route path='/USACanada'Component={USACanada} />
-    <Route path='/FreeConsultation' Component={FreeConsultation}/>
+    <Route path='/'       element={<Home />} />
+    <Route path='/About'  element={<About />} />
+    <Route path='/about'  element={<About />} />
+    <Route path='/Unitedkingdom' element={<Unitedkingdom />} />
+    <Route path='/Australiastudentvisa' element={<Australiastudentvisa />} />
+    <Route path='/UnitedStateofAmerica' element={<UnitedStateofAmerica />} />
+    <Route path='/Ukuniversities' element={<Ukuniversities />} />
+    <Route path='/USAUniversities' element={<USAUniversities />} /> 
+    <Route path='/AustraliaUniversities' element={<AustraliaUniversities />} />
+    <Route path='/UnitedArabEmiratesstudentvisa' element={<UnitedArabEmiratesstudentvisa />} />
+    <Route path='/UnitedArabEmiratesUniversities' element={<UnitedArabEmiratesUniversities />} />
+    <Route path='/GRE'  element={<GRE />} />
+    <Route path='/GMAT'  element={<GMAT />} />
+    <Route path='/IELTS'  element={<IELTS />} />
+    <Route path='/TOEFL'  element={<TOEFL />} />
+    <Route path='/PTE'  element={<PTE />} />
+    <Route path='/SATEXAM'  element={<SATEXAM />} />
+    <Route path='/DUOLINGO' element={<DUOLINGO />} />
+    <Route path='/OVERPIOLTTRAINING' element={<OVERPILOTTRAINING />} />
+    <Route path='/CourseCurriculum' element={<CourseCurriculum />} />
+    <Route path='/Contact'  element={<Contact />} />
+    <Route path='/USACanada' element={<USACanada />} />
+    <Route path='/FreeConsultation' element={<FreeConsultation />}/>
+    <Route path='/Immigration' element={<Immigration />} />
+    <Route path='/Blogs' element={<Blogs />} />
+    <Route path='/terms' element={<TermsOfService />} />
+    <Route path='/TermsOfService' element={<TermsOfService />} />
+    <Route path='/privacy' element={<PrivacyPolicy />} />
+    <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
      
- 
+
   </Routes>   
 
   )

@@ -13,19 +13,19 @@ const testimonials = [
   {
     id: 1,
     name: 'Aditi Rao',
-    country: 'Canada',
-    university: 'University of Toronto',
+    country: 'United States',
+    university: 'United States of Toronto',
     image: 'https://ui-avatars.com/api/?name=Aditi+Rao&background=0056D2&color=fff&size=200',
-    text: 'Sevis Global made my entire study abroad process seamless and stress-free! Their expert guidance helped me secure admission to my dream university in Canada.',
+    text: 'Facing an unexpected SEVIS termination, I was extremely stressed and unsure of what to do. Within hours, they guided me through the entire process and helped me secure a same-day university admission. Their clarity, speed, and expertise literally saved my future in the U.S.',
     rating: 5,
   },
   {
     id: 2,
     name: 'Rohan Sharma',
-    country: 'United Kingdom',
+    country: 'United States',
     university: 'London School of Economics',
     image: 'https://ui-avatars.com/api/?name=Rohan+Sharma&background=00ADEF&color=fff&size=200',
-    text: 'Their visa coaching and documentation guidance were exceptional. I got my UK student visa approved on the first attempt thanks to their thorough preparation.',
+    text: 'I had no idea how to proceed with my F1 to B2 change of status. They explained every step in simple language, helped me prepare all documents, and made sure everything was submitted correctly. I’ve never felt more confident about my immigration process.',
     rating: 5,
   },
   {
@@ -49,10 +49,10 @@ const testimonials = [
   {
     id: 5,
     name: 'Sneha Reddy',
-    country: 'Canada',
+    country: 'United States',
     university: 'McGill University',
     image: 'https://ui-avatars.com/api/?name=Sneha+Reddy&background=00ADEF&color=fff&size=200',
-    text: 'Best consultancy for study abroad! Their team is knowledgeable, responsive, and genuinely cares about your success. Thank you for making my dreams come true!',
+    text: 'I was struggling to find B1/B2 visa slots for months. They helped me get a confirmed slot within 7 days—no stress, no confusion. The entire experience was smooth and transparent',
     rating: 5,
   },
 ];
@@ -67,7 +67,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4">
             What Our Students Say
           </h2>
           <p className="text-lg md:text-xl text-textSecondary max-w-3xl mx-auto">

@@ -71,23 +71,23 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
       primary: 'info@sevisedu.com',
-      secondary: 'support@sevisedu.com',
+      secondary: 'info@sevisedu.com',
       link: 'mailto:info@sevisedu.com',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Call Us',
-      primary: '+91 9256-9256-45',
-      secondary: '+91 9256-9256-46',
-      link: 'tel:+919256925645',
+      primary: '+91 9256-9256-48',
+      secondary: '+91 7860-5095-06',
+      link: 'tel:+919256925648',
       color: 'from-green-500 to-green-600'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Visit Us',
       primary: 'Hyderabad Office',
-      secondary: 'Sanjeeva Reddy Nagar, Telangana',
+      secondary: 'Ameerpet, Hyderabad, Telangana',
       link: '#map',
       color: 'from-red-500 to-red-600'
     }
@@ -98,7 +98,7 @@ const Contact = () => {
       country: "India",
       city: "Hyderabad, Telangana",
       address: "3rd Floor, Tabgha Terrian Building, S.R. Nagar",
-      phone: "+91 9256-9256-45 / 46",
+      phone: "+91 9256-9256-48 / 49",
       email: "info@sevisedu.com",
       flag: "🇮🇳"
     },
@@ -136,10 +136,10 @@ const Contact = () => {
   ];
 
   const statistics = [
-    { number: "5000+", label: "Students Placed", icon: <User className="w-8 h-8" /> },
+    { number: "10,000+", label: "Students Placed", icon: <User className="w-8 h-8" /> },
     { number: "99%", label: "Visa Success Rate", icon: <CheckCircle className="w-8 h-8" /> },
-    { number: "24hrs", label: "Response Time", icon: <Clock className="w-8 h-8" /> },
-    { number: "15+", label: "Years Experience", icon: <Calendar className="w-8 h-8" /> }
+    { number: "24hrs", label: "Acceptance ", icon: <Clock className="w-8 h-8" /> },
+    { number: "11+", label: "Years Experience", icon: <Calendar className="w-8 h-8" /> }
   ];
 
   return (
@@ -184,14 +184,14 @@ const Contact = () => {
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center max-w-4xl">
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               Get In Touch
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              <span className="text-2xl md:text-3xl lg:text-4xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                 Let's Start Your Journey
               </span>
             </motion.h1>
@@ -255,7 +255,7 @@ const Contact = () => {
       </section>
 
       {/* Why Contact Us */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -284,7 +284,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Form & Info */}
       <section className="py-16 md:py-20 px-4 bg-white">
@@ -292,7 +292,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left - Contact Information */}
             <div data-aos="fade-right">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-3xl font-bold text-gray-900 mb-6">
                 Let's Connect
               </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -328,7 +328,7 @@ const Contact = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex gap-4">
                   <motion.a
-                    href="https://wa.me/919256925645"
+                    href="https://wa.me/919256925648"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white hover:shadow-lg transition-all"
@@ -550,7 +550,7 @@ const Contact = () => {
       </section>
 
       {/* Office Locations */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
+      {/* <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -607,7 +607,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Google Maps */}
       <section className="py-16 px-4 bg-white">
@@ -677,7 +677,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Start Your Study Abroad Journey?
             </h2>
             <p className="text-white/90 text-lg mb-8">
@@ -694,7 +694,7 @@ const Contact = () => {
                   Call Now
                 </motion.button>
               </a>
-              <a href="https://wa.me/919256925645" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/919256925648" target="_blank" rel="noopener noreferrer">
                 <motion.button
                   className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 shadow-2xl flex items-center gap-2"
                   whileHover={{ scale: 1.05 }}

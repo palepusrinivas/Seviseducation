@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PrivacyPolicy from './PrivacyPolicy';
 
 // Lazy load all route components for code splitting
 const Home = lazy(() => import('./Home'));
@@ -12,11 +13,14 @@ const Australiastudentvisa = lazy(() => import('./Australiastudentvisa'));
 const Unitedkingdom = lazy(() => import('./Unitedkingdom'));
 const UnitedStateofAmerica = lazy(() => import('./UnitedStateofAmerica'));
 const USACanada = lazy(() => import('./USACanada'));
+const UnitedArabEmiratesstudentvisa = lazy(() => import('./UnitedArabEmiratesstudentvisa'));
 
 // Universities Routes
 const Ukuniversities = lazy(() => import('./Ukuniversities'));
 const USAUniversities = lazy(() => import('./USAUniversities'));
 const AustraliaUniversities = lazy(() => import('./AustraliaUniversities'));
+const UnitedArabEmiratesUniversities = lazy(() => import('./UnitedArabEmiratesUniversities'));
+
 
 // Exams Routes
 const GRE = lazy(() => import('./GRE'));
@@ -31,6 +35,9 @@ const DUOLINGO = lazy(() => import('./DUOLINGO'));
 const OVERPILOTTRAINING = lazy(() => import('./OVERPILOTTRAINING'));
 const CourseCurriculum = lazy(() => import('./CourseCurriculum'));
 const Advice = lazy(() => import('./Advice'));
+const Immigration = lazy(() => import('./Immigration'));
+const Blogs = lazy(() => import('./Blogs'));
+const TermsOfService = lazy(() => import('./TermsOfService'))
 
 // Professional Loading Component
 const PageLoader = () => (
@@ -83,6 +90,7 @@ const LazyRoutes = () => {
         {/* Main Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/FreeConsultation" element={<FreeConsultation />} />
         <Route path="/Advice" element={<Advice />} />
@@ -97,6 +105,8 @@ const LazyRoutes = () => {
         <Route path="/Ukuniversities" element={<Ukuniversities />} />
         <Route path="/USAUniversities" element={<USAUniversities />} />
         <Route path="/AustraliaUniversities" element={<AustraliaUniversities />} />
+        <Route path='/UnitedArabEmiratesstudentvisa' element={<UnitedArabEmiratesstudentvisa/>} />
+        <Route path='/UnitedArabEmiratesUniversities' element={<UnitedArabEmiratesUniversities/>} />
 
         {/* Exams Routes */}
         <Route path="/GRE" element={<GRE />} />
@@ -110,6 +120,10 @@ const LazyRoutes = () => {
         {/* Other Routes */}
         <Route path="/OVERPIOLTTRAINING" element={<OVERPILOTTRAINING />} />
         <Route path="/CourseCurriculum" element={<CourseCurriculum />} />
+        <Route path="/Immigration" element={<Immigration />} />
+        <Route path="/Blogs" element={<Blogs />} />
+        <Route path='/TermsofService' element={<TermsOfService />} />
+        <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
 
         {/* 404 Route */}
         <Route path="*" element={<ErrorFallback />} />

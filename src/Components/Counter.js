@@ -26,16 +26,16 @@ const Counter = () => {
 
 
   
-    const countries1 = [
-  { name: "USA", font: "font-extrabold text-5xl tracking-wider uppercase" },
-  { name: "GERMANY", font: "font-serif text-4xl italic tracking-wide" },
-  { name: "AUSTRALIA", font: "font-mono text-5xl uppercase" },
-  { name: "DUBAI", font: "font-sans text-4xl font-semibold" },
-  { name: "UK", font: "font-bold text-5xl tracking-tight" },
-];
+//     const countries1 = [
+//   { name: "USA", font: "font-extrabold text-5xl tracking-wider uppercase" },
+//   { name: "GERMANY", font: "font-serif text-4xl italic tracking-wide" },
+//   { name: "AUSTRALIA", font: "font-mono text-5xl uppercase" },
+//   { name: "DUBAI", font: "font-sans text-4xl font-semibold" },
+//   { name: "UK", font: "font-bold text-5xl tracking-tight" },
+// ];
 
-// Duplicate for infinite scroll effect
-const allCountries = [...countries1, ...countries1];
+// // Duplicate for infinite scroll effect
+// const allCountries = [...countries1, ...countries1];
       
 
   return (
@@ -84,7 +84,7 @@ const allCountries = [...countries1, ...countries1];
     </div>
     </section>
 
-     <section className="w-full overflow-hidden relative  py-8">
+     {/* <section className="w-full overflow-hidden relative  py-8">
   <div className="flex animate-scroll">
     {allCountries.map((country, index) => (
       <div
@@ -99,7 +99,7 @@ const allCountries = [...countries1, ...countries1];
       </div>
     ))}
   </div>
-</section>
+</section> */}
     
    </section>
 

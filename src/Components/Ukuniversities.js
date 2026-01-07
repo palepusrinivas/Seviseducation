@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { NavLink } from 'react-router-dom';
 import {
   Award,
@@ -64,13 +62,7 @@ import Scrolltotop from './Scrolltotop';
 import GetStarted from './GetStrated';
 
 const Ukuniversities = () => {
-  useEffect(() => {
-    AOS.init({ 
-      duration: 800,
-      once: true,
-      easing: 'ease-out'
-    });
-  }, []);
+  const [activeTab, setActiveTab] = useState('all');
 
   // Partner Universities Data
   const partnerUniversities = [
@@ -327,17 +319,17 @@ const Ukuniversities = () => {
 
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center max-w-4xl">
-            <motion.div
+            {/* <motion.div
               className="inline-block mb-4 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <span className="text-white text-sm font-semibold">🇬🇧 Premier UK Institutions</span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-4xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -364,7 +356,7 @@ const Ukuniversities = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <NavLink to="/Contact">
+              {/* <NavLink to="/Contact">
                 <motion.button
                   className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-bold shadow-xl hover:shadow-2xl transition-all"
                   whileHover={{ scale: 1.05 }}
@@ -372,8 +364,8 @@ const Ukuniversities = () => {
                 >
                   Apply Now
                 </motion.button>
-              </NavLink>
-              <NavLink to="/Unitedkingdom">
+              </NavLink> */}
+              {/* <NavLink to="/Unitedkingdom">
                 <motion.button
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/50 px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition-all"
                   whileHover={{ scale: 1.05 }}
@@ -381,7 +373,7 @@ const Ukuniversities = () => {
                 >
                   Visa Information
                 </motion.button>
-              </NavLink>
+              </NavLink> */}
             </motion.div>
           </div>
         </div>
@@ -392,7 +384,7 @@ const Ukuniversities = () => {
         {/* Background Particles */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           {[...Array(20)].map((_, i) => (
-            <motion.div
+            <div
               key={i}
               className="absolute rounded-full bg-white"
               style={{
@@ -401,15 +393,6 @@ const Ukuniversities = () => {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
             />
           ))}
         </div>
@@ -417,18 +400,16 @@ const Ukuniversities = () => {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {statistics.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="text-center"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
                   {stat.icon}
                 </div>
                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</h3>
                 <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -437,8 +418,8 @@ const Ukuniversities = () => {
       {/* Why UK Universities Section */}
       <section className="py-16 md:py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Why Choose UK Universities?
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -449,25 +430,41 @@ const Ukuniversities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyUKUniversities.map((feature, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden group border-2 border-transparent hover:border-primary/30 relative"
+                style={{ transform: 'translateY(0) translateX(0) scale(1) !important' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0) translateX(0) scale(1.02)', 'important');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                }}
               >
-                <div className="p-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                    {feature.icon}
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></div>
+                
+                <div className="p-8 relative z-10">
+                  <div className="uk-universities-icon w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative z-10">{feature.icon}</div>
                   </div>
                   <div className="mb-4">
-                    <span className="text-3xl font-bold text-primary">{feature.stat}</span>
+                    <span className="uk-universities-stat text-2xl font-bold text-primary inline-block">{feature.stat}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="uk-universities-title text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{feature.description}</p>
                 </div>
-                <div className="h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-              </motion.div>
+                
+                {/* Animated bottom border */}
+                <div className="h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left relative z-10"></div>
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ boxShadow: 'inset 0 0 30px rgba(59, 130, 246, 0.1)' }}></div>
+              </div>
             ))}
           </div>
         </div>
@@ -475,9 +472,43 @@ const Ukuniversities = () => {
 
       {/* Partner Universities Showcase */}
       <section className="py-16 md:py-20 px-4 bg-white">
+        <style>{`
+          .uk-partner-universities-card {
+            transform: translateY(0) translateX(0) scale(1) !important;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+            position: relative !important;
+          }
+          .uk-partner-universities-card:hover {
+            transform: translateY(0) translateX(0) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 30px rgba(59, 130, 246, 0.2) !important;
+            border-color: rgba(59, 130, 246, 0.3) !important;
+          }
+          .uk-partner-universities-card .uk-partner-logo {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease !important;
+          }
+          .uk-partner-universities-card:hover .uk-partner-logo {
+            transform: scale(1.08) !important;
+            filter: brightness(1.1) !important;
+          }
+          .uk-partner-universities-card .uk-partner-title {
+            transition: color 0.3s ease !important;
+          }
+          .uk-partner-universities-card:hover .uk-partner-title {
+            color: rgb(59, 130, 246) !important;
+          }
+          .uk-partner-universities-card .uk-partner-icon {
+            transition: transform 0.3s ease, color 0.3s ease !important;
+          }
+          .uk-partner-universities-card:hover .uk-partner-icon {
+            transform: scale(1.15) !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Our Partner Universities
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -488,46 +519,60 @@ const Ukuniversities = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {partnerUniversities.map((uni, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ y: -10 }}
+                className="uk-partner-universities-card group relative bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-transparent hover:border-primary/30"
+                style={{ transform: 'translateY(0) translateX(0) scale(1) !important' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0) translateX(0) scale(1.02)', 'important');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0) translateX(0) scale(1)', 'important');
+                }}
               >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-0"></div>
+                
                 {/* Logo Section */}
-                <div className="h-48 bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden">
+                <div className="h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden group-hover:from-primary/5 group-hover:to-secondary/5 transition-all duration-500">
                   <img
                     src={uni.logo}
                     alt={uni.name}
-                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="uk-partner-logo max-w-full max-h-full object-contain relative z-10"
+                    style={{ transform: 'scale(1) !important' }}
                   />
-                  {/* Gradient Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Enhanced Gradient Overlay on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                  
+                  {/* Animated border on hover */}
+                  <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-t-2xl transition-all duration-500"></div>
                 </div>
 
                 {/* Info Section */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                <div className="p-6 relative z-10">
+                  <h3 className="uk-partner-title text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
                     {uni.name}
                   </h3>
                   
-                  <div className="space-y-2 text-sm text-gray-600 mb-4">
+                  <div className="space-y-2 text-sm text-gray-600 mb-4 group-hover:text-gray-700 transition-colors duration-300">
                     <div className="flex items-center gap-2">
-                      <Star className="w-4 h-4 text-primary flex-shrink-0" />
+                      <Star className="uk-partner-icon w-4 h-4 text-primary flex-shrink-0" />
                       <span>{uni.ranking}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <MapPin className="uk-partner-icon w-4 h-4 text-secondary flex-shrink-0" />
                       <span>{uni.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-accent flex-shrink-0" />
+                      <Users className="uk-partner-icon w-4 h-4 text-accent flex-shrink-0" />
                       <span>{uni.students} students</span>
                     </div>
                   </div>
 
-                  <p className="text-gray-700 text-sm font-medium mb-4">
+                  <p className="text-gray-700 text-sm font-medium mb-4 group-hover:text-gray-800 transition-colors duration-300">
                     {uni.programs}
                   </p>
 
@@ -536,16 +581,23 @@ const Ukuniversities = () => {
                     href={uni.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all group"
+                    className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all group/link relative overflow-hidden"
                   >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span className="relative z-10">Learn More</span>
+                    <ArrowRight className="w-4 h-4 relative z-10 group-hover/link:translate-x-1 transition-transform" />
+                    <span className="absolute inset-0 bg-primary/10 scale-x-0 group-hover/link:scale-x-100 origin-left transition-transform duration-300"></span>
                   </a>
                 </div>
 
-                {/* Decorative Corner */}
-                <div className="absolute top-3 right-3 w-10 h-10 border-t-2 border-r-2 border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.div>
+                {/* Enhanced Decorative Corner */}
+                <div className="absolute top-3 right-3 w-10 h-10 border-t-2 border-r-2 border-primary/20 opacity-0 group-hover:opacity-100 group-hover:border-primary/40 transition-all duration-300 z-10"></div>
+                
+                {/* Bottom border animation */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10"></div>
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ boxShadow: 'inset 0 0 30px rgba(59, 130, 246, 0.1)' }}></div>
+              </div>
             ))}
           </div>
         </div>
@@ -553,9 +605,25 @@ const Ukuniversities = () => {
 
       {/* Popular Programs Section */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <style>{`
+          .uk-popular-programs-card,
+          .uk-popular-programs-card *,
+          .uk-popular-programs-card:hover,
+          .uk-popular-programs-card:hover * {
+            transform: translateY(0) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+            position: relative !important;
+          }
+          .uk-popular-programs-card .group-hover\\:scale-110 {
+            transform: scale(1) !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Popular Programs in UK
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -566,12 +634,9 @@ const Ukuniversities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularPrograms.map((program, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 group"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
+                className="uk-popular-programs-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 group"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                   {program.icon}
@@ -597,71 +662,107 @@ const Ukuniversities = () => {
                   <Building className="w-4 h-4" />
                   <span>{program.universities}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* University Features Section */}
-      <section className="py-16 md:py-20 px-4 bg-white">
+      <section className="py-12 md:py-16 px-4 bg-white">
+        <style>{`
+          .uk-university-features-card,
+          .uk-university-features-card *,
+          .uk-university-features-card:hover,
+          .uk-university-features-card:hover * {
+            transform: translateX(0) translateY(0) !important;
+            transition: background-color 0.3s ease !important;
+            animation: none !important;
+            left: auto !important;
+            margin-left: 0 !important;
+            position: relative !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left - Content */}
-            <div data-aos="fade-right">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <div>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                 What UK Universities Offer
               </h2>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
                 British universities provide comprehensive support and world-class facilities to ensure your academic and personal success.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {universityFeatures.map((feature, index) => (
-                  <motion.div
+                    <div
                     key={index}
-                    className="flex items-start gap-4 bg-gray-50 p-5 rounded-xl hover:bg-gray-100 transition-colors"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
+                    className="uk-university-features-card flex items-start gap-3 bg-gray-50 p-4 rounded-lg hover:bg-gray-100 transition-colors"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary">
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary">
                       {feature.icon}
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-1">{feature.title}</h4>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h4 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h4>
+                      <p className="text-gray-600 text-xs">{feature.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Right - Image */}
-            <motion.div 
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
-              data-aos="fade-left"
+            <motion.div
+              className="relative rounded-xl overflow-hidden shadow-2xl group"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
               <img 
                 src={ukBridge} 
                 alt="UK University Campus" 
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[550px] md:h-[600px] lg:h-[650px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h3 className="text-3xl font-bold mb-4">Student Life in UK</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-2xl font-bold mb-1">95%</p>
-                    <p className="text-white/90 text-sm">Student Satisfaction</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold mb-1">90%</p>
-                    <p className="text-white/90 text-sm">Graduate Employment</p>
-                  </div>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent"></div>
+              
+              {/* Animated Overlay Pattern */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
               </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                <motion.h3 
+                  className="text-xl md:text-2xl font-bold mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Student Life in UK
+                </motion.h3>
+                <motion.div 
+                  className="grid grid-cols-2 gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <p className="text-2xl md:text-3xl font-bold mb-1">95%</p>
+                    <p className="text-white/90 text-xs md:text-sm">Student Satisfaction</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <p className="text-2xl md:text-3xl font-bold mb-1">90%</p>
+                    <p className="text-white/90 text-xs md:text-sm">Graduate Employment</p>
+                  </div>
+                </motion.div>
+              </div>
+              
+              {/* Decorative Corner Elements */}
+              <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.div>
           </div>
         </div>
@@ -669,9 +770,22 @@ const Ukuniversities = () => {
 
       {/* Application Process Section */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <style>{`
+          .uk-application-process-card,
+          .uk-application-process-card *,
+          .uk-application-process-card:hover,
+          .uk-application-process-card:hover * {
+            transform: translateY(0) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+            position: relative !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               How to Apply to UK Universities
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -707,12 +821,9 @@ const Ukuniversities = () => {
                 icon: <Award className="w-8 h-8" />
               }
             ].map((step, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="relative bg-white rounded-2xl shadow-lg p-8 border border-gray-100 text-center"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                whileHover={{ y: -10 }}
+                className="uk-application-process-card relative bg-white rounded-2xl shadow-lg p-8 border border-gray-100 text-center"
               >
                 <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold shadow-lg">
                   {step.step}
@@ -724,25 +835,42 @@ const Ukuniversities = () => {
 
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Campus Life Gallery */}
-      <section className="py-16 md:py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+      {/* <section className="py-16 md:py-20 px-4 bg-white">
+        <style>{`
+          .uk-campus-life-card,
+          .uk-campus-life-card *,
+          .uk-campus-life-card:hover,
+          .uk-campus-life-card:hover * {
+            transform: scale(1) translateY(0) translateX(0) !important;
+            transition: box-shadow 0.3s ease, opacity 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+            position: relative !important;
+          }
+          .uk-campus-life-card img,
+          .uk-campus-life-card:hover img {
+            transform: scale(1) !important;
+          }
+        `}</style> */}
+        {/* <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Experience Campus Life in UK
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
               Vibrant campus culture, modern facilities, and memorable student experiences
             </p>
-          </div>
+          </div> */}
 
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* <div className="grid md:grid-cols-3 gap-6">
             {[
               { image: uk1, title: "Modern Campus", description: "State-of-the-art facilities" },
               { image: uk2, title: "Student Life", description: "Vibrant community activities" },
@@ -751,44 +879,65 @@ const Ukuniversities = () => {
               { image: uk5, title: "Student Support", description: "Comprehensive guidance" },
               { image: studentImg, title: "Global Community", description: "Diverse international students" }
             ].map((item, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="relative h-80 overflow-hidden">
+                className="uk-campus-life-card relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                style={{ transform: 'scale(1) translateY(0) translateX(0) !important' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'scale(1) translateY(0) translateX(0)', 'important');
+                }}
+                onMouseMove={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'scale(1) translateY(0) translateX(0)', 'important');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'scale(1) translateY(0) translateX(0)', 'important');
+                }}
+              > */}
+                {/* <div className="relative h-80 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
+                    className="w-full h-full object-cover"
+                    style={{ transform: 'scale(1) !important' }}
+                  /> */}
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div> */}
                   
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  {/* <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
                     <p className="text-white/90">{item.description}</p>
-                  </div>
+                  </div> */}
 
                   {/* Hover Icon */}
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  {/* <div className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <ExternalLink className="w-6 h-6 text-white" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
+          </div> */}
+        {/* </div>
+      </section> */}
 
       {/* Student Support Services */}
       <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <style>{`
+          .uk-student-support-card,
+          .uk-student-support-card *,
+          .uk-student-support-card:hover,
+          .uk-student-support-card:hover * {
+            transform: translateY(0) translateX(0) scale(1) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+            position: relative !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Comprehensive Student Support
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -814,12 +963,9 @@ const Ukuniversities = () => {
                 points: ["Career counseling", "Job fairs", "Internship programs", "Alumni networking"]
               }
             ].map((service, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                whileHover={{ y: -5 }}
+                className="uk-student-support-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white mb-6">
                   {service.icon}
@@ -833,7 +979,7 @@ const Ukuniversities = () => {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -841,10 +987,20 @@ const Ukuniversities = () => {
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-primary via-secondary to-primary relative overflow-hidden">
+        <style>{`
+          .uk-cta-button,
+          .uk-cta-button:hover,
+          .uk-cta-button:active,
+          .uk-cta-button:focus {
+            transform: scale(1) !important;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+            animation: none !important;
+          }
+        `}</style>
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           {[...Array(15)].map((_, i) => (
-            <motion.div
+                    <div
               key={i}
               className="absolute rounded-full bg-white"
               style={{
@@ -853,28 +1009,14 @@ const Ukuniversities = () => {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
-              animate={{
-                y: [0, -40, 0],
-                scale: [1, 1.3, 1],
-                opacity: [0.3, 0.7, 0.3],
-              }}
-              transition={{
-                duration: 6 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
             />
           ))}
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+                    <div
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Start Your UK University Journey?
             </h2>
             <p className="text-white/90 text-lg md:text-xl mb-8">
@@ -882,25 +1024,21 @@ const Ukuniversities = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <NavLink to="/Contact">
-                <motion.button
-                  className="bg-white text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 shadow-2xl"
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}
-                  whileTap={{ scale: 0.95 }}
+                <button
+                  className="uk-cta-button bg-white text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 shadow-2xl"
                 >
                   Book Free Consultation
-                </motion.button>
+                </button>
               </NavLink>
               <NavLink to="/Unitedkingdom">
-                <motion.button
-                  className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <button
+                  className="uk-cta-button bg-transparent border-2 border-white text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10"
                 >
                   View Visa Requirements
-                </motion.button>
+                </button>
               </NavLink>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

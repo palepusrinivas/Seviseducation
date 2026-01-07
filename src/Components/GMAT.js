@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { FaUniversity, FaBriefcase, FaCalendarAlt, FaDollarSign, FaChartLine } from 'react-icons/fa';
 
-import exam from "../assest/student-doing-the-test-exam-2022-12-15-23-22-34-utc-min-scaled.jpg";
+import exam from "../assest/GMAT.webp";
 import Scrolltotop from './Scrolltotop';
 import GetStarted from './GetStrated';
 
@@ -44,7 +44,7 @@ const GMAT = () => {
       duration: "75 minutes",
       questions: "36 questions",
       score: "0-60",
-      description: "Problem solving and data sufficiency questions",
+      description: "Problem solving and data sufficiency",
       icon: <Calculator className="w-8 h-8" />,
       topics: ["Arithmetic", "Algebra", "Geometry", "Data Sufficiency"]
     },
@@ -62,7 +62,7 @@ const GMAT = () => {
       duration: "30 minutes",
       questions: "12 questions",
       score: "1-8",
-      description: "Analyze data presented in multiple formats",
+      description: "Multi-format data analysis",
       icon: <BarChart className="w-8 h-8" />,
       topics: ["Multi-Source Reasoning", "Table Analysis", "Graphics Interpretation"]
     },
@@ -71,7 +71,7 @@ const GMAT = () => {
       duration: "30 minutes",
       questions: "1 essay",
       score: "0-6",
-      description: "Analysis of an argument essay",
+      description: "Argument analysis essay",
       icon: <PenTool className="w-8 h-8" />,
       topics: ["Argument Analysis"]
     }
@@ -81,40 +81,40 @@ const GMAT = () => {
     {
       icon: <FaBriefcase className="w-8 h-8" />,
       title: "MBA Programs",
-      description: "Required by top MBA programs and business schools worldwide"
+      description: "Required by top business schools"
     },
     {
       icon: <Brain className="w-8 h-8" />,
       title: "Computer Adaptive",
-      description: "CAT format adjusts difficulty based on your performance"
+      description: "Difficulty adjusts to your performance"
     },
     {
       icon: <Target className="w-8 h-8" />,
       title: "Predictive Validity",
-      description: "Best predictor of success in graduate management programs"
+      description: "Strong predictor of program success"
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Career Advancement",
-      description: "Opens doors to top business schools and leadership roles"
+      description: "Access to top business schools"
     },
     {
       icon: <Award className="w-8 h-8" />,
       title: "Scholarship Opportunities",
-      description: "Higher scores increase chances for scholarships"
+      description: "Higher scores increase scholarship chances"
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Global Network",
-      description: "Join network of 7,000+ business programs worldwide"
+      description: "7,000+ business programs worldwide"
     }
   ];
 
   const scoreRanges = [
     { range: "710-800", level: "Exceptional", description: "Top 10% - Elite programs" },
-    { range: "650-710", level: "Excellent", description: "Top 25% - Top tier schools" },
-    { range: "570-650", level: "Good", description: "Above average performance" },
-    { range: "400-570", level: "Average", description: "Competitive for many programs" }
+    { range: "650-710", level: "Excellent", description: "Top 25% - Top tier" },
+    { range: "570-650", level: "Good", description: "Above average" },
+    { range: "400-570", level: "Average", description: "Competitive" }
   ];
 
   const statistics = [
@@ -164,24 +164,24 @@ const GMAT = () => {
 
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center max-w-4xl">
-            <motion.div
+            {/* <motion.div
               className="inline-block mb-4 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <span className="text-white text-sm font-semibold">💼 Business School Test</span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               GMAT Exam
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              <span className="text-2xl md:text-3xl lg:text-4xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                 Graduate Management Admission Test
               </span>
             </motion.h1>
@@ -192,7 +192,7 @@ const GMAT = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Gateway to Top MBA Programs and Business Schools
+              Gateway to Top MBA Programs
             </motion.p>
 
             <motion.div
@@ -200,7 +200,7 @@ const GMAT = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <NavLink to="/Contact">
+              {/* <NavLink to="/Contact">
                 <motion.button
                   className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-bold shadow-xl"
                   whileHover={{ scale: 1.05 }}
@@ -208,7 +208,7 @@ const GMAT = () => {
                 >
                   Join GMAT Coaching
                 </motion.button>
-              </NavLink>
+              </NavLink> */}
             </motion.div>
           </div>
         </div>
@@ -235,7 +235,7 @@ const GMAT = () => {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">GMAT Exam Overview</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Exam Overview</h2>
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
@@ -248,10 +248,9 @@ const GMAT = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all"
+                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
-                whileHover={{ y: -5 }}
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
                   {item.icon}
@@ -268,16 +267,15 @@ const GMAT = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">GMAT Test Sections</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Test Sections</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {sections.map((section, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg p-8 border border-gray-100"
+                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white">
@@ -317,16 +315,15 @@ const GMAT = () => {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">GMAT Score Ranges</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Score Ranges</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {scoreRanges.map((score, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all"
+                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
-                whileHover={{ y: -5 }}
               >
                 <div className="text-4xl font-bold text-primary mb-2">{score.range}</div>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">{score.level}</h4>
@@ -341,18 +338,17 @@ const GMAT = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Take GMAT?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why GMAT?</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyGMAT.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-all group"
+                className="bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-colors duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
@@ -375,7 +371,7 @@ const GMAT = () => {
               Score 700+ on GMAT
             </h2>
             <p className="text-white/90 text-lg mb-8">
-              Join our expert GMAT coaching and get into top business schools
+              Expert coaching for top business schools
             </p>
             <NavLink to="/Contact">
               <motion.button

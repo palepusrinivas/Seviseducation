@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { 
   FileText, 
   Send, 
@@ -43,14 +41,6 @@ import GetStarted from "./GetStrated";
 
 const UnitedStateofAmerica = () => {
   const [activeCategory, setActiveCategory] = useState("F1 VISA");
-
-  useEffect(() => {
-    AOS.init({ 
-      duration: 800,
-      once: true,
-      easing: 'ease-out'
-    });
-  }, []);
 
   // 9-Step Application Process
   const applicationSteps = [
@@ -191,9 +181,9 @@ const UnitedStateofAmerica = () => {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <motion.img
-          src={USA1}
+        src={USA1}
           alt="United States Student Visa"
-          className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
@@ -228,14 +218,14 @@ const UnitedStateofAmerica = () => {
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center">
             <motion.h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-4"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               United States of America
               <br />
-              <span className="text-primary">Student Visa</span>
+              <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Student Visa</span>
             </motion.h1>
             <motion.p
               className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto"
@@ -245,28 +235,26 @@ const UnitedStateofAmerica = () => {
             >
               Your Gateway to World-Class Education in the USA
             </motion.p>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
+   </section>
 
       {/* Tab Navigation */}
       <div className="bg-gray-50 py-6 sticky top-0 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
-              <motion.button
+              <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold border-2 transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full text-sm font-semibold border-2 transition-colors duration-300 ${
                   activeCategory === category
                     ? "bg-gradient-to-r from-primary to-secondary text-white border-primary shadow-lg"
                     : "bg-white text-gray-700 border-gray-300 hover:border-primary hover:text-primary"
                 }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 {category}
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>
@@ -274,22 +262,15 @@ const UnitedStateofAmerica = () => {
 
       {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <AnimatePresence mode="wait">
-          {activeCategory === "F1 VISA" && (
-            <motion.div
-              key="f1-visa"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+        {activeCategory === "F1 VISA" && (
+          <div>
               {/* F1 Visa Overview */}
               <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
-                <motion.div data-aos="fade-right">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                     F1 Student Visa Overview
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
                     <p>
                       F1 visas are the most popular nonimmigrant student visas that allow foreigners to study in U.S. universities or colleges certified by the Student and Exchange Visitor Program (SEVP). Students are enrolled in a full-time course that culminates in a degree, diploma, or certificate from accredited institutions.
                     </p>
@@ -300,12 +281,9 @@ const UnitedStateofAmerica = () => {
                       Outside the United States, F1 visas are granted by U.S. embassies and consulates, while changes to the status and extension of the stay may be possible within the United States.
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
-                >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={usaCity} 
                     alt="USA Student Life" 
@@ -316,28 +294,38 @@ const UnitedStateofAmerica = () => {
                     <h3 className="text-2xl font-bold mb-2">Study in the USA</h3>
                     <p className="text-white/90">Access world-class universities and diverse opportunities</p>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               {/* 9-Step Process */}
               <div className="mb-16">
-                <div className="text-center mb-12" data-aos="fade-up">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <style>{`
+                  .usa-application-steps-card,
+                  .usa-application-steps-card *,
+                  .usa-application-steps-card:hover,
+                  .usa-application-steps-card:hover * {
+                    transform: translateY(0) !important;
+                    transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+                    animation: none !important;
+                    top: auto !important;
+                    margin-top: 0 !important;
+                    position: relative !important;
+                  }
+                `}</style>
+                <div className="text-center mb-12">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                     9-Step Application Process
                   </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                  <p className="text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
                     Follow this comprehensive step-by-step guide to successfully apply for your U.S. student visa
                   </p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {applicationSteps.map((step, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 50}
-                      whileHover={{ y: -8 }}
+                      className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6 border border-gray-100"
                     >
                       {/* Step Number Badge */}
                       <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold shadow-lg">
@@ -347,113 +335,109 @@ const UnitedStateofAmerica = () => {
                       {/* Icon */}
                       <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center text-primary mb-4">
                         {step.icon}
-                      </div>
+        </div>
 
-                      {/* Content */}
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                    </motion.div>
+        {/* Content */}
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-gray-600 text-xs leading-relaxed">{step.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeCategory === "REQUIRED DOCUMENTS" && (
-            <motion.div
-              key="required-docs"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               {/* Main Required Documents Section */}
               <div className="mb-16">
-                <div className="text-center mb-12" data-aos="fade-up">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <style>{`
+                  .usa-f1-documents-card,
+                  .usa-f1-documents-card *,
+                  .usa-f1-documents-card:hover,
+                  .usa-f1-documents-card:hover * {
+                    transform: translateY(0) !important;
+                    transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+                    animation: none !important;
+                    top: auto !important;
+                    margin-top: 0 !important;
+                    position: relative !important;
+                  }
+                `}</style>
+                <div className="text-center mb-12">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                     Required Documents for F1 Visa
                   </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                  <p className="text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
                     Comprehensive list of documents needed for your U.S. student visa application
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {requiredDocuments.map((doc, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 50}
-                      whileHover={{ y: -5 }}
+                      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
                     >
                       <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary mb-4">
                         {doc.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{doc.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{doc.description}</p>
-                    </motion.div>
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{doc.title}</h3>
+                      <p className="text-gray-600 text-xs leading-relaxed">{doc.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Supporting Documents Section */}
               <div className="mb-16">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center" data-aos="fade-up">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
                   Supporting Documents
                 </h2>
                 
                 <div className="grid md:grid-cols-3 gap-8">
                   {supportingDocuments.map((doc, index) => (
-                    <motion.div
-                      key={index}
+                    <div
+              key={index}
                       className="relative bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 100}
-                      whileHover={{ scale: 1.02 }}
                     >
                       <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center text-primary mb-4">
                         {doc.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{doc.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{doc.description}</p>
-                    </motion.div>
+                      <h3 className="text-base font-bold text-gray-900 mb-3">{doc.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{doc.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* I-20 Form Section */}
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 md:p-12" data-aos="fade-up">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 md:p-12">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
                       I-20 Form Requirements
                     </h2>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                       The I-20, Certificate of Eligibility for Nonimmigrant Students, outlines the course of study along with students' details and financial modes through which students will be supported during their stay in the U.S.
                     </p>
                     <div className="space-y-3">
                       {i20Requirements.map((req, index) => (
-                        <motion.div
+                        <div
                           key={index}
                           className="flex items-start gap-3"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
                         >
                           <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mt-0.5">
                             <FaCheckCircle className="text-white text-xs" />
                           </div>
-                          <p className="text-gray-700">{req}</p>
-                        </motion.div>
+                          <p className="text-gray-700 text-sm">{req}</p>
+                        </div>
                       ))}
                     </div>
-                  </div>
+              </div>
 
-                  <motion.div 
+                  <div 
                     className="relative rounded-2xl overflow-hidden shadow-2xl"
-                    whileHover={{ scale: 1.02 }}
                   >
                     <img 
                       src={visaImg} 
@@ -461,98 +445,80 @@ const UnitedStateofAmerica = () => {
                       className="w-full h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </motion.div>
-                </div>
+                  </div>
               </div>
+            </div>
 
               {/* Financial Documents Section */}
-              <div className="mt-16" data-aos="fade-up">
+              <div className="mt-16">
                 <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
                     Financial Documents Required
                   </h2>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-8 leading-relaxed">
                     You must submit documents outlining your source of funding to attend the program. The cost of tuition will be mentioned in the I-20 form. Various documents can be shown as proof of financing:
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     {financialDocuments.map((doc, index) => (
-                      <motion.div
+                      <div
                         key={index}
                         className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.05 }}
                       >
                         <div className="flex-shrink-0 w-5 h-5 bg-primary rounded-full flex items-center justify-center mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <p className="text-gray-700 text-sm">{doc}</p>
-                      </motion.div>
+                        <p className="text-gray-700 text-xs">{doc}</p>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
 
               {/* Expert Assistance CTA */}
-              <div className="mt-12 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center" data-aos="fade-up">
+              <div className="mt-12 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center">
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Need Help with Documentation?
                 </h3>
                 <p className="text-white/90 mb-6 max-w-2xl mx-auto">
                   Our expert guides assist you in filling out all necessary documents, making payments, and compiling all required materials for the visa interview. We provide personalized support with timely updates throughout the process.
                 </p>
-                <motion.button
-                  className="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl transition-colors">
                   Get Expert Assistance
-                </motion.button>
+                </button>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeCategory === "SEVIS-1901 FEE" && (
-            <motion.div
-              key="sevis-fee"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <div className="grid md:grid-cols-2 gap-12 items-center">
-                <motion.div 
+                <div 
                   className="order-2 md:order-1"
-                  data-aos="fade-right"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                     SEVIS I-901 Fee Payment
                   </h2>
                   <div className="space-y-4 text-gray-600 leading-relaxed">
-                    <p className="text-lg">
+                    <p className="text-sm">
                       The information provided in the I-20 will be registered in the Student and Exchange Visitor Information System (SEVIS). The applicant must pay the SEVIS I-901 (SEVP processing and maintenance charge) fee as part of the visa application process.
                     </p>
                     <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border-2 border-primary/20">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Fee Amount</h3>
-                      <p className="text-4xl font-bold text-primary mb-2">USD 350</p>
-                      <p className="text-sm text-gray-600">SEVIS I-901 Processing Fee</p>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">Fee Amount</h3>
+                      <p className="text-3xl font-bold text-primary mb-2">USD 350</p>
+                      <p className="text-xs text-gray-600">SEVIS I-901 Processing Fee</p>
                     </div>
                     <div className="bg-gradient-to-br from-secondary/10 to-accent/10 rounded-xl p-6 border-2 border-secondary/20 mt-4">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Visa Application Fee</h3>
-                      <p className="text-4xl font-bold text-secondary mb-2">USD 185</p>
-                      <p className="text-sm text-gray-600">DS-160 Visa Application Cost</p>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">Visa Application Fee</h3>
+                      <p className="text-3xl font-bold text-secondary mb-2">USD 185</p>
+                      <p className="text-xs text-gray-600">DS-160 Visa Application Cost</p>
                     </div>
-                    <p className="pt-4">
+                    <p className="pt-4 text-sm">
                       The payment receipt of the I-901 fee is required to be produced during the visa interview. The costs can be paid through the official SEVP payment portal.
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  className="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
-                >
+                <div className="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={admissionImg} 
                     alt="Fee Payment" 
@@ -563,15 +529,15 @@ const UnitedStateofAmerica = () => {
                     <h3 className="text-2xl font-bold mb-2">Payment Process</h3>
                     <p className="text-white/90">Secure online payment through official portals</p>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+      </div>
 
               {/* DS-160 Form Section */}
-              <div className="mt-16 bg-gray-50 rounded-2xl p-8 md:p-12" data-aos="fade-up">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <div className="mt-16 bg-gray-50 rounded-2xl p-8 md:p-12">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
                   DS-160 Visa Application Form
                 </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                   DS-160 is a visa application that must be filled out while applying for a nonimmigrant student visa (F1). The DS-160 form requires information related to:
                 </p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -581,52 +547,46 @@ const UnitedStateofAmerica = () => {
                     { icon: <Users />, title: "Employment History" },
                     { icon: <FileText />, title: "Security Questions" }
                   ].map((item, index) => (
-                    <motion.div
-                      key={index}
+                    <div
+        key={index}
                       className="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300"
-                      whileHover={{ y: -5 }}
                     >
                       <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
                         {item.icon}
-                      </div>
-                      <p className="font-semibold text-gray-900">{item.title}</p>
-                    </motion.div>
-                  ))}
-                </div>
+      </div>
+                      <p className="font-semibold text-gray-900 text-sm">{item.title}</p>
+                    </div>
+    ))}
+  </div>
                 <div className="mt-8 bg-white rounded-xl p-6 border-l-4 border-primary">
-                  <p className="text-gray-700">
-                    <strong>Important:</strong> You must provide a digital photo taken within the last 6 months from the application submission date. Once successfully submitted, a confirmation page with a barcode will be presented, which must be printed and produced during the visa interview.
+                  <p className="text-gray-700 text-sm">
+                    <strong>Important:</strong> Applicants are required to provide biometric fingerprints and a photograph at the U.S. Consulate or Embassy in their home country after submitting the DS-160 form.
+
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeCategory === "VISA INTERVIEW" && (
-            <motion.div
-              key="visa-interview"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <motion.div data-aos="fade-right">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                     Visa Interview Process
                   </h2>
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
                     <p>
                       Once the necessary payments are made and all required documents are compiled, the next step is to locate the U.S. embassy nearest to you or of your choice and schedule an interview.
                     </p>
                     <div className="bg-blue-50 border-l-4 border-primary p-6 rounded-r-xl">
-                      <h3 className="font-bold text-gray-900 mb-2">Important Timeline:</h3>
+                      <h3 className="font-bold text-gray-900 mb-2 text-sm">Important Timeline:</h3>
                       <ul className="space-y-2">
-                        <li className="flex items-start gap-2">
+                        <li className="flex items-start gap-2 text-sm">
                           <span className="text-primary">•</span>
                           <span>New students can apply for F1 visa <strong>120 days before</strong> the course start date</span>
                         </li>
-                        <li className="flex items-start gap-2">
+                        <li className="flex items-start gap-2 text-sm">
                           <span className="text-primary">•</span>
                           <span>Students are allowed to enter the U.S. only <strong>30 days before</strong> the course begins</span>
                         </li>
@@ -639,12 +599,9 @@ const UnitedStateofAmerica = () => {
                       The applicant must show strong ties to the home country using financial resources with intent to return once the course is finished. The F1 visa is usually valid up to 60 days beyond the course's end date.
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
-                >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={studentImg} 
                     alt="Visa Interview Preparation" 
@@ -655,13 +612,13 @@ const UnitedStateofAmerica = () => {
                     <h3 className="text-2xl font-bold mb-2">Interview Preparation</h3>
                     <p className="text-white/90">Professional mock interviews and guidance</p>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               {/* Interview Preparation Cards */}
-              <div className="grid md:grid-cols-2 gap-8 mb-12" data-aos="fade-up">
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 border-2 border-primary/20">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
                     What to Bring
                   </h3>
                   <ul className="space-y-3">
@@ -676,14 +633,14 @@ const UnitedStateofAmerica = () => {
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-gray-700 text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="bg-gradient-to-br from-secondary/10 to-accent/10 rounded-2xl p-8 border-2 border-secondary/20">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
                     Interview Tips
                   </h3>
                   <ul className="space-y-3">
@@ -698,21 +655,21 @@ const UnitedStateofAmerica = () => {
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0" />
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-gray-700 text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+    </div>
 
               {/* Expert Coaching Section */}
-              <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white" data-aos="fade-up">
+              <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h3 className="text-3xl font-bold mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold mb-4">
                       Expert Mock Interview Coaching
                     </h3>
-                    <p className="text-white/90 mb-6">
+                    <p className="text-white/90 text-sm mb-6">
                       We provide comprehensive mock interview sessions conducted by expert coaches who help you:
                     </p>
                     <ul className="space-y-3">
@@ -727,26 +684,21 @@ const UnitedStateofAmerica = () => {
                           <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                             <CheckCircle className="w-4 h-4" />
                           </div>
-                          <span>{item}</span>
+                          <span className="text-sm">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="flex items-center justify-center">
-                    <motion.button
-                      className="bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 shadow-2xl"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                    <button className="bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-gray-100 shadow-2xl transition-colors">
                       Schedule Mock Interview
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
-      </div>
+        </div>
 
       {/* Bottom Components */}
       <Scrolltotop />

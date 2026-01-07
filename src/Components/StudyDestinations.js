@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import AOS from 'aos';
 
 // Import country images
-import canada from '../assest/Canada.jpg';
-import uk from '../assest/UK1.jpg';
-import usa from '../assest/USA_City-.jpg';
-import australia from '../assest/Australia.jpg';
+import UAE from '../assest/city-skyline-with-building-background.webp';
+import uk from '../assest/tower-bridge-thames-river-against-clear-sky.webp';
+import usa from '../assest/usa.webp';
+import australia from '../assest/opera-house-sydney.webp';
 
 const destinations = [
   {
-    id: 1,
-    country: 'Canada',
-    image: canada,
-    description: 'World-class education with post-graduation work opportunities',
-    highlights: ['High quality of life', 'Affordable tuition', 'PR pathways'],
-    link: '/Australiastudentvisa',
+  
+     id: 1,
+    country: 'United States',
+    image: usa,
+    description: 'Innovation hubs and diverse academic programs',
+    highlights: ['Top universities', 'Research opportunities', 'Career growth'],
+    link: '/UnitedStateofAmerica',
   },
   {
     id: 2,
@@ -27,12 +26,12 @@ const destinations = [
     link: '/Unitedkingdom',
   },
   {
-    id: 3,
-    country: 'United States',
-    image: usa,
-    description: 'Innovation hubs and diverse academic programs',
-    highlights: ['Top universities', 'Research opportunities', 'Career growth'],
-    link: '/UnitedStateofAmerica',
+      id: 3,
+    country: 'United Arab Emirates',
+    image: UAE,
+    description: 'World-class education with post-graduation work opportunities',
+    highlights: ['High quality of life', 'Affordable tuition', 'PR pathways'],
+    link: '/UnitedArabEmiratesstudentvisa',
   },
   {
     id: 4,
@@ -45,16 +44,12 @@ const destinations = [
 ];
 
 const StudyDestinations = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
   return (
     <section className="py-16 px-6 md:px-20 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-4">
             Popular Study Destinations
           </h2>
           <p className="text-lg md:text-xl text-textSecondary max-w-3xl mx-auto">
@@ -66,14 +61,8 @@ const StudyDestinations = () => {
         {/* Destinations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {destinations.map((destination, index) => (
-            <motion.div
+            <div
               key={destination.id}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="group relative h-[500px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               style={{
                 perspective: '1000px',
@@ -116,7 +105,7 @@ const StudyDestinations = () => {
 
                   {/* Learn More Button */}
                   <NavLink to={destination.link}>
-                    <button className="w-full bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-primary px-6 py-3 rounded-full font-semibold transition-all duration-300 group-hover:scale-105 flex items-center justify-center gap-2">
+                    <button className="w-full bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-grey hover:text-primary px-6 py-3 rounded-full font-semibold transition-all duration-300 group-hover:scale-105 flex items-center justify-center gap-2">
                       Explore Programs
                       <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -132,12 +121,12 @@ const StudyDestinations = () => {
 
               {/* 3D Shadow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl transform translate-y-2 -z-10 blur-xl"></div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Additional Info */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -150,7 +139,7 @@ const StudyDestinations = () => {
               Get a free consultation
             </NavLink>
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

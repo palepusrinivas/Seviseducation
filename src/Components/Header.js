@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Mail, Phone } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import sevislogo from "../assest/sevis logo.jpg";
@@ -11,7 +12,10 @@ const routePaths = {
   "UNITED STATES OF AMERICA": "/UnitedStateofAmerica",
   "UK University": "/Ukuniversities",
   "USA University": "/USAUniversities",
+  "UNITED ARAB EMIRATES": "/UnitedArabEmiratesstudentvisa",
   "AUSTRALIA University": "/AustraliaUniversities",
+  "United Arab Emirates University": "/UnitedArabEmiratesUniversities",
+  "UAE University": "/UnitedArabEmiratesUniversities",
   "GRE": "/GRE",
   "GMAT": "/GMAT",
   "IELTS": "/IELTS",
@@ -26,15 +30,15 @@ const routePaths = {
 const menuItems = [
   {
     title: "STUDENT VISA",
-    links: ["AUSTRALIA STUDENT VISA", "UNITED KINGDOM", "UNITED STATES OF AMERICA"],
+    links: ["AUSTRALIA STUDENT VISA", "UNITED KINGDOM", "UNITED STATES OF AMERICA", "UNITED ARAB EMIRATES"],
   },
   {
     title: "UNIVERSITIES",
-    links: ["UK University", "USA University", "AUSTRALIA University"],
+    links: ["AUSTRALIA University", "UK University", "USA University",  "UAE University"],
   },
   {
     title: "EXAMS",
-    links: ["GRE", "GMAT", "IELTS", "TOEFL", "PTE", "SAT EXAM", "DUOLINGO"],
+    links: ["DUOLINGO", "GRE", "GMAT", "IELTS", "PTE", "SAT EXAM", "TOEFL"],
   },
 ];
 
@@ -71,20 +75,25 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-[9999] w-full transition-all duration-500 ${
-        scrolled 
-          ? 'bg-white shadow-2xl border-b border-gray-200' 
-          : 'bg-white shadow-lg'
-      }`}
-      style={{ 
-        textDecoration: 'none',
-        position: 'fixed',
-        backgroundColor: 'white',
-        willChange: 'transform'
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+    <>
+    
+      {/* Main Navigation - Positioned Below Top Bar */}
+      <nav 
+        className={`fixed left-0 right-0 w-full transition-all duration-500 ${
+          scrolled 
+            ? 'bg-white shadow-2xl border-b border-gray-200' 
+            : 'bg-white shadow-lg'
+        }`}
+        style={{ 
+          top: '52px',
+          zIndex: 10000,
+          textDecoration: 'none',
+          position: 'fixed',
+          backgroundColor: 'white',
+          willChange: 'transform'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <div className="flex justify-between items-center py-2.5 lg:py-3">
           {/* Logo with Hover Effect */}
           <NavLink to="/" className="flex-shrink-0 no-underline" style={{ textDecoration: 'none' }}>
@@ -286,10 +295,7 @@ export default function Header() {
 
                       {/* Dropdown Footer - Compact */}
                       <div className="bg-gradient-to-r from-primary/25 via-secondary/25 to-primary/25 px-5 py-2.5 border-t border-white/20 backdrop-blur-sm">
-                        <div className="flex items-center justify-between">
-                          <p className="text-[10px] text-gray-200 font-semibold tracking-wide">
-                            {menu.links.length} Options Available
-                          </p>
+                        <div className="flex items-center justify-end">
                           <div className="flex gap-1.5">
                             {[...Array(3)].map((_, i) => (
                               <div 
@@ -308,6 +314,68 @@ export default function Header() {
                 </AnimatePresence>
               </div>
             ))}
+
+             {/* Immigration Link */}
+            <NavLink
+              to="/Immigration"
+              className={({ isActive }) =>
+                `relative px-3 xl:px-4 py-2 font-semibold text-xs xl:text-sm transition-all duration-300 rounded-lg no-underline group ${
+                isActive
+                    ? "text-primary"
+                    : "text-gray-700 hover:text-primary"
+                }`
+              }
+              style={{ textDecoration: 'none' }}
+            >
+              {({ isActive }) => (
+                <>
+                  <span className="relative z-10">IMMIGRATION</span>
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg ${
+                      isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    }`}
+                    transition={{ duration: 0.3 }}
+                  />
+                  {isActive && (
+                    <motion.div 
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"
+                      layoutId="underline"
+                    />
+                  )}
+                </>
+              )}
+            </NavLink>
+
+               {/* Blogs Link */}
+            <NavLink
+              to="/Blogs"
+              className={({ isActive }) =>
+                `relative px-3 xl:px-4 py-2 font-semibold text-xs xl:text-sm transition-all duration-300 rounded-lg no-underline group ${
+                isActive
+                    ? "text-primary"
+                    : "text-gray-700 hover:text-primary"
+                }`
+              }
+              style={{ textDecoration: 'none' }}
+            >
+              {({ isActive }) => (
+                <>
+                  <span className="relative z-10">BLOGS</span>
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg ${
+                      isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    }`}
+                    transition={{ duration: 0.3 }}
+                  />
+                  {isActive && (
+                    <motion.div 
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"
+                      layoutId="underline"
+                    />
+                  )}
+                </>
+              )}
+            </NavLink>
 
             {/* Contact Link */}
             <NavLink
@@ -467,7 +535,7 @@ export default function Header() {
                   {({ isActive }) => (
                     <>
                       <div className={`w-2 h-2 flex-shrink-0 rounded-full ${isActive ? 'bg-primary' : 'bg-gray-400'}`} />
-                      <span>About Us</span>
+                      <span>ABOUT US</span>
                     </>
                   )}
             </NavLink>
@@ -571,6 +639,50 @@ export default function Header() {
               </div>
             ))}
 
+             
+                {/* Immigration Link */}
+            <NavLink
+              to="/Immigration"
+              className={({ isActive }) =>
+                    `flex items-center gap-3 py-3 sm:py-3.5 px-3 sm:px-4 mb-2 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 no-underline active:scale-95 ${
+                isActive
+                        ? "bg-gradient-to-r from-primary/15 to-secondary/15 text-primary"
+                        : "text-gray-800 hover:bg-gray-50 active:bg-gray-100 hover:text-primary"
+                    }`
+              }
+                  style={{ textDecoration: 'none' }}
+              onClick={() => setMenuOpen(false)}
+            >
+                  {({ isActive }) => (
+                    <>
+                      <div className={`w-2 h-2 flex-shrink-0 rounded-full ${isActive ? 'bg-primary' : 'bg-gray-400'}`} />
+                      <span>IMMIGRATION</span>
+                    </>
+                  )}
+            </NavLink>
+
+              
+                {/* Blogs Link */}
+            <NavLink
+              to="/Blogs"
+              className={({ isActive }) =>
+                    `flex items-center gap-3 py-3 sm:py-3.5 px-3 sm:px-4 mb-2 rounded-lg font-bold text-sm sm:text-base transition-all duration-300 no-underline active:scale-95 ${
+                isActive
+                        ? "bg-gradient-to-r from-primary/15 to-secondary/15 text-primary"
+                        : "text-gray-800 hover:bg-gray-50 active:bg-gray-100 hover:text-primary"
+                    }`
+              }
+                  style={{ textDecoration: 'none' }}
+              onClick={() => setMenuOpen(false)}
+            >
+                  {({ isActive }) => (
+                    <>
+                      <div className={`w-2 h-2 flex-shrink-0 rounded-full ${isActive ? 'bg-primary' : 'bg-gray-400'}`} />
+                      <span>BLOGS</span>
+                    </>
+                  )}
+            </NavLink>
+
                 {/* Contact Link */}
             <NavLink
               to="/Contact"
@@ -587,7 +699,7 @@ export default function Header() {
                   {({ isActive }) => (
                     <>
                       <div className={`w-2 h-2 flex-shrink-0 rounded-full ${isActive ? 'bg-primary' : 'bg-gray-400'}`} />
-                      <span>Contact Us</span>
+                      <span>CONTACT US</span>
                     </>
                   )}
             </NavLink>
@@ -619,5 +731,6 @@ export default function Header() {
         )}
       </AnimatePresence>
     </nav>
+    </>
   );
 }

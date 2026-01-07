@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaInstagram, FaWhatsapp, FaLinkedin } from "react-icons/fa"; 
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-import logo from "../assest/Layer_3.svg";
+import logo from "../assest/footerupdate.png";
 import { NavLink } from 'react-router-dom';
 import AOS from 'aos';
 import footer from "../assest/image 25.png";
@@ -105,7 +105,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-400 text-sm leading-relaxed">
-              Your trusted global education partner since 2010. Expert counseling, visa support, and documentation assistance.
+              Your trusted global education partner. Expert counseling, visa support and documentation assistance.
             </p>
 
             {/* Professional Social Media */}
@@ -161,7 +161,7 @@ const Footer = () => {
                 className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors group"
               >
                 <Phone className="w-4 h-4 mt-0.5 text-white/60 group-hover:text-white flex-shrink-0 transition-colors" />
-                <span className="text-sm">+91 9256-9256-45 / 46</span>
+                <span className="text-sm">+91 9256-9256-49</span>
               </a>
 
               <div className="flex items-start gap-3 text-gray-400 pt-2">
@@ -322,12 +322,12 @@ const Footer = () => {
               © 2025 <span className="text-gray-300 font-medium">Sevis Global Education Pvt. Ltd.</span> All Rights Reserved.
             </p>
             <div className="flex gap-6 text-xs">
-              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+              <NavLink to="/PrivacyPolicy" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+              </NavLink>
+              <NavLink to="/TermsofService" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
-              </a>
+              </NavLink>
               <a href="/Contact" className="text-gray-400 hover:text-white transition-colors">
                 Contact
               </a>

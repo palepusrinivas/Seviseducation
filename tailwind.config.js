@@ -12,8 +12,9 @@ module.exports = {
         textSecondary: '#64748B',
       },
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        sans: ['Bai Jamjuree', 'sans-serif'],
+        heading: ['Bai Jamjuree', 'sans-serif'],
+        body: ['Bai Jamjuree', 'sans-serif'],
       },
       animation: {
         'slow-fade-in': 'slowFadeIn 3s ease-in',

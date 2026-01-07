@@ -183,17 +183,17 @@ const GRE = () => {
 
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center max-w-4xl">
-            <motion.div
+            {/* <motion.div
               className="inline-block mb-4 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <span className="text-white text-sm font-semibold">📚 Graduate Admissions Test</span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -220,7 +220,7 @@ const GRE = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <NavLink to="/Contact">
+              {/* <NavLink to="/Contact">
                 <motion.button
                   className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-bold shadow-xl"
                   whileHover={{ scale: 1.05 }}
@@ -228,7 +228,7 @@ const GRE = () => {
                 >
                   Enroll in GRE Coaching
                 </motion.button>
-              </NavLink>
+              </NavLink> */}
             </motion.div>
           </div>
         </div>
@@ -260,7 +260,7 @@ const GRE = () => {
       <section className="py-16 md:py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               GRE Exam Overview
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -280,10 +280,9 @@ const GRE = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all"
+                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
-                whileHover={{ y: -5 }}
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary mx-auto mb-3">
                   {item.icon}
@@ -300,7 +299,7 @@ const GRE = () => {
       <section className="py-16 md:py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               GRE Test Sections
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -312,10 +311,9 @@ const GRE = () => {
             {sections.map((section, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-8 border border-gray-100"
+                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 border border-gray-100"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                whileHover={{ y: -5 }}
               >
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
@@ -363,7 +361,7 @@ const GRE = () => {
       <section className="py-16 md:py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Why Take the GRE?
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -375,12 +373,11 @@ const GRE = () => {
             {whyGRE.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all group"
+                className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
@@ -395,7 +392,7 @@ const GRE = () => {
       <section className="py-16 md:py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               GRE Preparation Tips
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">

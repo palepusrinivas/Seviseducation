@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { NavLink } from 'react-router-dom';
 import {
   Award,
@@ -65,24 +63,19 @@ import asu13 from "../assest/asu13.webp";
 import asu14 from "../assest/asu14.png";
 
 // Images
-import Australia from "../assest/Australia.jpg";
-import Australia2 from "../assest/aus-scaled 1.png";
-import studentImg from "../assest/student-doing-the-test-exam-2022-12-15-23-22-34-utc-min-scaled.jpg";
-import aboutImg from "../assest/about.jpg";
-import careersImg from "../assest/careers.jpg";
-import advantageImg from "../assest/Advantages.jpg";
+import Australia from "../assest/Coastal Campuses.avif";
+import advantageImg from "../assest/Modern Facilities.webp";
+import studentImg from "../assest/Diverse Community.webp";
+import aboutImg from "../assest/Urban Excellence.avif";
+import careersImg from "../assest/Career Success.avif";
+import Australia1 from "../assest/Natural Beauty.avif";
+
+import Australia2 from "../assest/Advantages.jpg";
 
 import Scrolltotop from './Scrolltotop';
 import GetStarted from './GetStrated';
 
 const AustraliaUniversities = () => {
-  useEffect(() => {
-    AOS.init({ 
-      duration: 800,
-      once: true,
-      easing: 'ease-out'
-    });
-  }, []);
 
   // All university logos
   const universities = [
@@ -339,17 +332,17 @@ const AustraliaUniversities = () => {
 
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center max-w-4xl">
-            <motion.div
+            {/* <motion.div
               className="inline-block mb-4 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <span className="text-white text-sm font-semibold">🇦🇺 Premier Australian Institutions</span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -376,7 +369,7 @@ const AustraliaUniversities = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <NavLink to="/Contact">
+              {/* <NavLink to="/Contact">
                 <motion.button
                   className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-bold shadow-xl hover:shadow-2xl transition-all"
                   whileHover={{ scale: 1.05 }}
@@ -384,8 +377,8 @@ const AustraliaUniversities = () => {
                 >
                   Apply to Australian Universities
                 </motion.button>
-              </NavLink>
-              <NavLink to="/Australiastudentvisa">
+              </NavLink> */}
+              {/* <NavLink to="/Australiastudentvisa">
                 <motion.button
                   className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/50 px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition-all"
                   whileHover={{ scale: 1.05 }}
@@ -393,7 +386,7 @@ const AustraliaUniversities = () => {
                 >
                   Student Visa Guide
                 </motion.button>
-              </NavLink>
+              </NavLink> */}
             </motion.div>
           </div>
         </div>
@@ -404,7 +397,7 @@ const AustraliaUniversities = () => {
         {/* Background Particles */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           {[...Array(20)].map((_, i) => (
-            <motion.div
+            <div
               key={i}
               className="absolute rounded-full bg-white"
               style={{
@@ -413,15 +406,6 @@ const AustraliaUniversities = () => {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
             />
           ))}
         </div>
@@ -429,18 +413,16 @@ const AustraliaUniversities = () => {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {statistics.map((stat, index) => (
-              <motion.div
+                    <div
                 key={index}
                 className="text-center"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
                   {stat.icon}
                 </div>
                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</h3>
                 <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -449,8 +431,8 @@ const AustraliaUniversities = () => {
       {/* Why Australia Universities */}
       <section className="py-16 md:py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Why Study in Australian Universities?
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -461,25 +443,22 @@ const AustraliaUniversities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyAustraliaUniversities.map((feature, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
               >
                 <div className="p-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                     {feature.icon}
                   </div>
                   <div className="mb-4">
-                    <span className="text-3xl font-bold text-primary">{feature.stat}</span>
+                    <span className="text-2xl font-bold text-primary">{feature.stat}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                 </div>
-                <div className="h-1 bg-gradient-to-r from-primary via-secondary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-              </motion.div>
+                <div className="h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
+              </div>
             ))}
           </div>
         </div>
@@ -488,8 +467,8 @@ const AustraliaUniversities = () => {
       {/* University Groups */}
       <section className="py-16 md:py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Australian University Networks
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -500,12 +479,9 @@ const AustraliaUniversities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {universityGroups.map((group, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
               >
                 <div className="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-primary mb-6">
                   {group.icon}
@@ -520,7 +496,7 @@ const AustraliaUniversities = () => {
                 <p className="text-sm text-gray-500">
                   <strong>Members:</strong> {group.examples}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -528,9 +504,21 @@ const AustraliaUniversities = () => {
 
       {/* Popular Programs */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <style>{`
+          .australia-popular-programs-card,
+          .australia-popular-programs-card *,
+          .australia-popular-programs-card:hover,
+          .australia-popular-programs-card:hover * {
+            transform: translateY(0) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Popular Programs in Australia
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -541,12 +529,19 @@ const AustraliaUniversities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularPrograms.map((program, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 group"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ y: -8 }}
+                className="australia-popular-programs-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 group"
+                style={{ transform: 'translateY(0) !important' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
+                onMouseMove={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                   {program.icon}
@@ -578,7 +573,7 @@ const AustraliaUniversities = () => {
                     <span>{program.topSchools}</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -586,9 +581,24 @@ const AustraliaUniversities = () => {
 
       {/* Partner Universities Grid - Enhanced */}
       <section className="py-16 md:py-20 px-4 bg-white">
+        <style>{`
+          .australia-partner-universities-card,
+          .australia-partner-universities-card *,
+          .australia-partner-universities-card:hover,
+          .australia-partner-universities-card:hover * {
+            transform: translateY(0) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+          }
+          .australia-partner-universities-card img {
+            transition: transform 0.3s ease !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Our Partner Universities in Australia
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -600,18 +610,26 @@ const AustraliaUniversities = () => {
           {/* University Logos Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
             {universities.map((logo, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="group relative bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 p-6 border border-gray-100"
-                data-aos="fade-up"
-                data-aos-delay={(index % 10) * 40}
-                whileHover={{ y: -8 }}
+                className="australia-partner-universities-card group relative bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 p-6 border border-gray-100"
+                style={{ transform: 'translateY(0) !important' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
+                onMouseMove={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
               >
                 <div className="relative h-28 flex items-center justify-center">
                   <img
                     src={logo}
                     alt={`Australian University ${index + 1}`}
-                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="max-w-full max-h-full object-contain"
+                    style={{ transform: 'scale(1) !important' }}
                   />
                 </div>
 
@@ -620,14 +638,13 @@ const AustraliaUniversities = () => {
                 
                 {/* Corner Decoration */}
                 <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Additional Info */}
-          <motion.div 
+                    <div
             className="mt-12 text-center"
-            data-aos="fade-up"
           >
             <p className="text-gray-600 text-lg mb-6">
               <strong>14+ partner universities</strong> including Group of Eight research institutions, 
@@ -643,69 +660,92 @@ const AustraliaUniversities = () => {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* University Features */}
-      <section className="py-16 md:py-20 px-4 bg-gray-50">
+      <section className="py-12 md:py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left - Content */}
-            <div data-aos="fade-right">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <div>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                 What Australian Universities Offer
               </h2>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
                 Australian universities combine academic excellence with a practical, industry-focused approach to education, ensuring graduates are career-ready.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {universityFeatures.map((feature, index) => (
-                  <motion.div
+                    <div
                     key={index}
-                    className="flex items-start gap-4 bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
+                    className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary">
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary">
                       {feature.icon}
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-1">{feature.title}</h4>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h4 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h4>
+                      <p className="text-gray-600 text-xs">{feature.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Right - Image */}
-            <motion.div 
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
-              data-aos="fade-left"
+            <motion.div
+              className="relative rounded-xl overflow-hidden shadow-2xl group"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
               <img 
                 src={Australia} 
                 alt="Australia Campus Life" 
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[550px] md:h-[600px] lg:h-[650px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h3 className="text-3xl font-bold mb-4">Student Life in Australia</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-2xl font-bold mb-1">98%</p>
-                    <p className="text-white/90 text-sm">Student Satisfaction</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold mb-1">AUD 60K+</p>
-                    <p className="text-white/90 text-sm">Average Graduate Salary</p>
-                  </div>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent"></div>
+              
+              {/* Animated Overlay Pattern */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
               </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                <motion.h3 
+                  className="text-xl md:text-2xl font-bold mb-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Student Life in Australia
+                </motion.h3>
+                <motion.div 
+                  className="grid grid-cols-2 gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <p className="text-2xl md:text-3xl font-bold mb-1">98%</p>
+                    <p className="text-white/90 text-xs md:text-sm">Student Satisfaction</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <p className="text-2xl md:text-3xl font-bold mb-1">AUD 60K+</p>
+                    <p className="text-white/90 text-xs md:text-sm">Average Graduate Salary</p>
+                  </div>
+                </motion.div>
+              </div>
+              
+              {/* Decorative Corner Elements */}
+              <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.div>
           </div>
         </div>
@@ -714,8 +754,8 @@ const AustraliaUniversities = () => {
       {/* Application Timeline */}
       <section className="py-16 md:py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Application Timeline for Australia
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -726,12 +766,9 @@ const AustraliaUniversities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {applicationTimeline.map((phase, index) => (
-              <motion.div
+                    <div
                 key={index}
                 className="relative bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                whileHover={{ y: -8 }}
               >
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full text-white font-bold text-sm shadow-lg">
                   {phase.month}
@@ -754,7 +791,7 @@ const AustraliaUniversities = () => {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -763,8 +800,8 @@ const AustraliaUniversities = () => {
       {/* Campus Life Gallery */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Experience Life in Australia
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -779,14 +816,11 @@ const AustraliaUniversities = () => {
               { image: studentImg, title: "Diverse Community", description: "Students from 200+ countries" },
               { image: aboutImg, title: "Urban Excellence", description: "Study in liveable cities" },
               { image: careersImg, title: "Career Success", description: "Strong graduate outcomes" },
-              { image: Australia, title: "Natural Beauty", description: "Stunning Australian landscape" }
+              { image: Australia1, title: "Natural Beauty", description: "Stunning Australian landscape" }
             ].map((item, index) => (
-              <motion.div
+                    <div
                 key={index}
                 className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-                data-aos="fade-up"
-                data-aos-delay={index * 50}
-                whileHover={{ scale: 1.02 }}
               >
                 <div className="relative h-80 overflow-hidden">
                   <img 
@@ -808,7 +842,7 @@ const AustraliaUniversities = () => {
                     <ExternalLink className="w-6 h-6 text-white" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -816,8 +850,20 @@ const AustraliaUniversities = () => {
 
       {/* Student Support Section */}
       <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <style>{`
+          .australia-student-support-card,
+          .australia-student-support-card *,
+          .australia-student-support-card:hover,
+          .australia-student-support-card:hover * {
+            transform: translateY(0) !important;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+            animation: none !important;
+            top: auto !important;
+            margin-top: 0 !important;
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12" data-aos="fade-up">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               International Student Support
             </h2>
@@ -844,12 +890,19 @@ const AustraliaUniversities = () => {
                 points: ["Part-time work guidance", "PSW visa assistance", "Internship programs", "Career counseling"]
               }
             ].map((service, index) => (
-              <motion.div
+                    <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                whileHover={{ y: -5 }}
+                className="australia-student-support-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300"
+                style={{ transform: 'translateY(0) !important' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
+                onMouseMove={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('transform', 'translateY(0)', 'important');
+                }}
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white mb-6">
                   {service.icon}
@@ -863,7 +916,7 @@ const AustraliaUniversities = () => {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -874,7 +927,7 @@ const AustraliaUniversities = () => {
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           {[...Array(15)].map((_, i) => (
-            <motion.div
+                    <div
               key={i}
               className="absolute rounded-full bg-white"
               style={{
@@ -883,28 +936,14 @@ const AustraliaUniversities = () => {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
               }}
-              animate={{
-                y: [0, -40, 0],
-                scale: [1, 1.3, 1],
-                opacity: [0.3, 0.7, 0.3],
-              }}
-              transition={{
-                duration: 6 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
             />
           ))}
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+                    <div
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Study in Australia?
             </h2>
             <p className="text-white/90 text-lg md:text-xl mb-8">
@@ -912,25 +951,21 @@ const AustraliaUniversities = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <NavLink to="/Contact">
-                <motion.button
+                <button
                   className="bg-white text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 shadow-2xl"
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   Schedule Free Consultation
-                </motion.button>
+                </button>
               </NavLink>
               <NavLink to="/Australiastudentvisa">
-                <motion.button
+                <button
                   className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   View Student Visa Guide
-                </motion.button>
+                </button>
               </NavLink>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

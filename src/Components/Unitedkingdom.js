@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { 
   FileText, 
   Send, 
@@ -53,17 +51,11 @@ import studentImg from "../assest/student-doing-the-test-exam-2022-12-15-23-22-3
 import visaImg from "../assest/visa.jpg";
 import Scrolltotop from "./Scrolltotop";
 import GetStarted from "./GetStrated";
+import travel from "../assest/Austrail travel.avif";
+
 
 const Unitedkingdom = () => {
   const [activeCategory, setActiveCategory] = useState("OVERVIEW");
-
-  useEffect(() => {
-    AOS.init({ 
-      duration: 800,
-      once: true,
-      easing: 'ease-out'
-    });
-  }, []);
 
   // Why UK Benefits
   const ukBenefits = [
@@ -323,19 +315,19 @@ const Unitedkingdom = () => {
     }
   ];
 
-  const categories = ["OVERVIEW", "YOUR COURSE", "REQUIRED DOCUMENTS", "FUNDS REQUIREMENT", "ENGLISH PROFICIENCY", "DOCUMENTS"];
+  const categories = ["OVERVIEW", "YOUR COURSE", "REQUIRED DOCUMENTS", "FUNDS REQUIREMENT", "ENGLISH PROFICIENCY"];
 
   return (
     <section className="bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
         <motion.img
-        src={ukbig}
+          src={ukbig}
           alt="Study in United Kingdom"
-        className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         
@@ -367,91 +359,78 @@ const Unitedkingdom = () => {
         <div className="relative flex h-full items-center justify-center px-4">
           <div className="text-center">
             <motion.h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-4"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Study in the United Kingdom
               <br />
-              <span className="text-primary">Student Visa Guide</span>
+              <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Student Visa Guide</span>
             </motion.h1>
             <motion.p
               className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             >
               Your Gateway to World-Class British Education
             </motion.p>
-      </div>
-    </div>
-   </section>
+          </div>
+        </div>
+      </section>
 
       {/* Tab Navigation */}
       <div className="bg-gray-50 py-6 sticky top-0 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3">
-          {categories.map((category) => (
-              <motion.button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold border-2 transition-all duration-300 ${
-                activeCategory === category
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-3 rounded-full text-sm font-semibold border-2 transition-colors duration-300 ${
+                  activeCategory === category
                     ? "bg-gradient-to-r from-primary to-secondary text-white border-primary shadow-lg"
                     : "bg-white text-gray-700 border-gray-300 hover:border-primary hover:text-primary"
-              }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-            >
-              {category}
-              </motion.button>
-          ))}
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
         </div>
 
       {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <AnimatePresence mode="wait">
-          {activeCategory === "OVERVIEW" && (
-        <motion.div
-              key="overview"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+        {activeCategory === "OVERVIEW" && (
+          <div>
               {/* Overview Section */}
               <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
-                <motion.div data-aos="fade-right">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                     UK Student Visa Overview
                   </h2>
-                  <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
                     If you are 16 years of age or older and meet the following criteria, you are eligible to apply for a Student visa to study in the UK:
                   </p>
                   
                   <div className="space-y-3 mb-8">
                     {eligibilityCriteria.map((criteria, index) => (
-                      <motion.div
+                      <div
                         key={index}
                         className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
                       >
                         <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mt-0.5">
                           <CheckCircle className="text-white w-4 h-4" />
                         </div>
-                        <p className="text-gray-700">{criteria}</p>
-                      </motion.div>
-                    ))}
-                  </div>
+                        <p className="text-gray-700 text-sm">{criteria}</p>
+                      </div>
+          ))}
+        </div>
 
                   <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border-2 border-primary/20">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Facts:</h3>
+                    <h3 className="text-base font-bold text-gray-900 mb-4">Quick Facts:</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-3">
                         <FaStar className="text-primary flex-shrink-0" />
@@ -467,14 +446,13 @@ const Unitedkingdom = () => {
                       </li>
                     </ul>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
+                <div 
                   className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
                 >
                   <img 
-                    src={uk1} 
+                    src={travel} 
                     alt="UK Student Life" 
                     className="w-full h-[500px] object-cover"
                   />
@@ -483,58 +461,52 @@ const Unitedkingdom = () => {
                     <h3 className="text-2xl font-bold mb-2">Historic Excellence</h3>
                     <p className="text-white/90">Study at world-renowned British institutions</p>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               {/* Benefits Grid */}
               <div className="mb-16">
-                <div className="text-center mb-12" data-aos="fade-up">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <div className="text-center mb-12">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                     Why Study in the UK?
                   </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                  <p className="text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
                     Discover the advantages of pursuing your education in the United Kingdom
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {ukBenefits.map((benefit, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 50}
-                      whileHover={{ y: -8 }}
+                      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
                     >
                       <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center text-primary mb-4">
                         {benefit.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                    </motion.div>
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* 10-Step Process */}
               <div>
-                <div className="text-center mb-12" data-aos="fade-up">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <div className="text-center mb-12">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                     Your UK Study Journey - 10 Steps
                   </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                  <p className="text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
                     Complete step-by-step guide to study in the United Kingdom
                   </p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                   {applicationSteps.map((step, index) => (
-                    <motion.div
-              key={index}
-                      className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 30}
-                      whileHover={{ y: -8 }}
+                    <div
+                      key={index}
+                      className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6 border border-gray-100"
                     >
                       <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold shadow-lg">
                         {step.number}
@@ -544,43 +516,34 @@ const Unitedkingdom = () => {
                         {step.icon}
                       </div>
 
-                      <h3 className="text-base font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                    </motion.div>
+                      <h3 className="text-sm font-bold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-gray-600 text-xs leading-relaxed">{step.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeCategory === "YOUR COURSE" && (
-            <motion.div
-              key="your-course"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <motion.div data-aos="fade-right">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div>
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6">
                     Course Requirements & CAS
                   </h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-xs md:text-sm">
                     To apply for a visa, you must have an unconditional offer from a licensed student sponsor for a course. Your education provider will provide you with a reference number known as a Confirmation of Acceptance for Studies (CAS) once they have offered you a place on the course.
                   </p>
                   <div className="bg-blue-50 border-l-4 border-primary rounded-r-xl p-6 mb-6">
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">📌 Important:</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm">📌 Important:</h3>
+                    <p className="text-gray-700 text-xs">
                       You will need your CAS reference number to apply for your Student visa. This is issued only after you accept your offer and meet any conditions.
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
-                >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={uk2} 
                     alt="UK University" 
@@ -591,158 +554,152 @@ const Unitedkingdom = () => {
                     <h3 className="text-2xl font-bold mb-2">Course Options</h3>
                     <p className="text-white/90">Choose from diverse programs across all levels</p>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               {/* Course Options */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center" data-aos="fade-up">
+                <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-8 text-center">
                   Course Types You Can Pursue
                 </h2>
                 <div className="grid md:grid-cols-3 gap-8">
                   {courseOptions.map((course, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 100}
-                      whileHover={{ y: -5 }}
+                      className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 hover:border-primary/40 transition-colors duration-300"
                     >
                       <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold mb-4 text-xl">
                         {index + 1}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{course.level}</h3>
-                      <div className="space-y-2 text-gray-700">
+                      <h3 className="text-sm font-bold text-gray-900 mb-3">{course.level}</h3>
+                      <div className="space-y-2 text-gray-700 text-xs">
                         <p><strong>Level:</strong> {course.rqf}</p>
                         <p><strong>Requirement:</strong> {course.requirement}</p>
                         <p><strong>Duration:</strong> {course.duration}</p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* CTA */}
-              <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center" data-aos="fade-up">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   Need Help Choosing Your Course?
                 </h3>
-                <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+                <p className="text-white/90 text-sm mb-6 max-w-2xl mx-auto">
                   Our expert counselors can help you select the right course and university based on your academic background and career goals.
                 </p>
-                <motion.button
-                  className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl transition-colors">
                   Get Course Guidance
-                </motion.button>
+                </button>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeCategory === "REQUIRED DOCUMENTS" && (
-            <motion.div
-              key="required-docs"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               {/* Main Documents */}
               <div className="mb-16">
-                <div className="text-center mb-12" data-aos="fade-up">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <style>{`
+                  .uk-documents-card,
+                  .uk-documents-card *,
+                  .uk-documents-card:hover,
+                  .uk-documents-card:hover * {
+                    transform: translateY(0) !important;
+                    transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+                    animation: none !important;
+                    top: auto !important;
+                    margin-top: 0 !important;
+                    position: relative !important;
+                  }
+                `}</style>
+                <div className="text-center mb-12">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                     Essential Documents for UK Student Visa
                   </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                  <p className="text-gray-600 max-w-3xl mx-auto text-sm md:text-base">
                     Complete checklist of documents required for your UK student visa application
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {requiredDocuments.map((doc, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 50}
-                      whileHover={{ y: -5 }}
+                      className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
                     >
                       <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center text-primary mb-4">
                         {doc.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{doc.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{doc.description}</p>
-                    </motion.div>
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{doc.title}</h3>
+                      <p className="text-gray-600 text-xs leading-relaxed">{doc.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Additional Documents by Category */}
               <div className="mb-16">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center" data-aos="fade-up">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
                   Additional Documentation Requirements
                 </h2>
                 
                 <div className="grid md:grid-cols-2 gap-8">
                   {additionalDocuments.map((category, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       className="bg-white rounded-xl shadow-lg p-6 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 100}
                     >
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white font-bold">
                           {index + 1}
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
+                        <h3 className="text-base font-bold text-gray-900">{category.category}</h3>
                       </div>
                       <ul className="space-y-2">
                         {category.items.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-gray-600 text-sm">
+                          <li key={idx} className="flex items-start gap-2 text-gray-600 text-xs">
                             <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
                   </ul>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Financial Requirements */}
-              <div className="mb-16" data-aos="fade-up">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <div className="mb-16">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
                   Financial Requirements
                 </h2>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {financialRequirements.map((req, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 text-center"
-                      whileHover={{ y: -5 }}
+                      className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-6 border-2 border-primary/20 hover:border-primary/40 transition-colors duration-300 text-center"
                     >
                       <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-primary mx-auto mb-3">
                         {req.icon}
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">{req.category}</h3>
-                      <p className="text-2xl font-bold text-primary mb-2">{req.amount}</p>
-                      <p className="text-gray-600 text-sm">{req.description}</p>
-                    </motion.div>
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{req.category}</h3>
+                      <p className="text-xl font-bold text-primary mb-2">{req.amount}</p>
+                      <p className="text-gray-600 text-xs">{req.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* CAS Information */}
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 md:p-12" data-aos="fade-up">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 md:p-12">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
                       What is a CAS Number?
                     </h2>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                       The Confirmation of Acceptance for Studies (CAS) is a unique reference number that your university or college will issue once you have:
                     </p>
                     <div className="space-y-3">
@@ -752,113 +709,192 @@ const Unitedkingdom = () => {
                         "Met all the conditions of your offer",
                         "Provided required documentation"
                       ].map((item, index) => (
-                        <motion.div
+                        <div
                           key={index}
                           className="flex items-start gap-3"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
                         >
                           <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mt-0.5">
                             <FaCheckCircle className="text-white text-xs" />
             </div>
-                          <p className="text-gray-700">{item}</p>
-                        </motion.div>
+                          <p className="text-gray-700 text-sm">{item}</p>
+                        </div>
                       ))}
                     </div>
                   </div>
 
-                  <motion.div 
-                    className="relative rounded-2xl overflow-hidden shadow-2xl"
-                    whileHover={{ scale: 1.02 }}
-                  >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img 
                       src={visaImg} 
                       alt="CAS Document" 
                       className="w-full h-[400px] object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </motion.div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Complete Document Checklist Section */}
+              <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+                    Complete Document Checklist
+                  </h2>
+                  <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
+                    To apply for your Student visa, you will need to provide the following documents:
+                  </p>
+
+                  <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border-2 border-primary/20 mb-6">
+                    <h3 className="text-base font-bold text-gray-900 mb-4">Mandatory Documents:</h3>
+                    <ul className="space-y-3">
+                      {[
+                        "A current passport or other valid travel documentation",
+                        "A Confirmation of Acceptance for Studies (CAS) from your course provider"
+                      ].map((doc, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <FaCheckCircle className="text-primary flex-shrink-0 mt-1" />
+                          <span className="text-gray-700 text-sm">{doc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-50 border-l-4 border-secondary rounded-r-xl p-6">
+                    <h4 className="font-bold text-gray-900 mb-3 text-sm">Additional Documents You May Need:</h4>
+                    <ul className="space-y-2">
+                      {[
+                        "Proof of sufficient funds to support yourself and pay for your course",
+                        "A valid ATAS certificate if your course and nationality require it",
+                        "Proof of parental or legal guardian consent if you are under 18",
+                        "Proof of your relationship to your parent or guardian if under 18"
+                      ].map((doc, index) => (
+                        <li key={index} className="flex items-start gap-2 text-gray-700 text-sm">
+                          <span className="text-secondary">•</span>
+                          <span>{doc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div 
+                  className="relative rounded-2xl overflow-hidden shadow-2xl"
+                >
+                  <img 
+                    src={uk5} 
+                    alt="UK Visa Documents" 
+                    className="w-full h-[600px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <h3 className="text-xl font-bold mb-2">Complete Documentation</h3>
+                    <p className="text-white/90 text-sm">Ensure all documents are properly prepared</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Visa Application Process */}
+              <div className="mt-16 mb-16">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
+                  Visa Application & Processing
+                </h2>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    {
+                      title: "Application Fee",
+                      amount: "£363",
+                      description: "Standard student visa fee (outside UK)",
+                      icon: <FaPoundSign className="w-8 h-8" />
+                    },
+                    {
+                      title: "Healthcare Surcharge",
+                      amount: "£470/year",
+                      description: "Immigration Health Surcharge (IHS)",
+                      icon: <Heart className="w-8 h-8" />
+                    },
+                    {
+                      title: "Processing Time",
+                      amount: "3 weeks",
+                      description: "Standard processing from outside UK",
+                      icon: <Clock className="w-8 h-8" />
+                    }
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 text-center"
+                    >
+                      <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center text-primary mx-auto mb-4">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-2xl font-bold text-primary mb-2">{item.amount}</p>
+                      <p className="text-gray-600 text-xs">{item.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               {/* Document Assistance CTA */}
-              <div className="mt-12 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center" data-aos="fade-up">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Expert Document Preparation Assistance
+              <div className="mt-12 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                  Complete Visa Application Support
                 </h3>
-                <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-                  Our experienced team will help you prepare, verify, and organize all required documents for a successful visa application.
+                <p className="text-white/90 text-sm mb-6 max-w-2xl mx-auto">
+                  From document preparation to visa interview coaching, we provide end-to-end support for your UK student visa application.
                 </p>
-                <motion.button
-                  className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get Document Checklist
-                </motion.button>
+                <button className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl transition-colors">
+                  Get Visa Assistance
+                </button>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {activeCategory === "FUNDS REQUIREMENT" && (
-            <motion.div
-              key="funds-req"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <motion.div 
-                  className="order-2 md:order-1"
-                  data-aos="fade-right"
-                >
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Financial Requirements for UK Student Visa
+                <div className="order-2 md:order-1">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                    Financials for UK Student Visa
                   </h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
                     It is necessary to have sufficient funds to cover the costs of your course and living expenses in the UK. The amount of money you need will vary depending on your individual circumstances and where you will be studying.
                   </p>
 
                   <div className="space-y-6">
                     <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border-2 border-primary/20">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">Total Funds Required:</h3>
+                      <h3 className="text-base font-bold text-gray-900 mb-4">Total Funds Required:</h3>
                       <div className="space-y-3">
                         <div className="flex justify-between items-center">
-                          <span className="text-gray-700">Tuition Fees (1 year):</span>
-                          <span className="font-bold text-lg">As per CAS</span>
+                          <span className="text-gray-700 text-sm">Tuition Fees (1 year):</span>
+                          <span className="font-bold text-sm">As per CAS</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-gray-700">Living Costs (London):</span>
-                          <span className="font-bold text-primary text-lg">£12,006</span>
+                          <span className="text-gray-700 text-sm">Living Costs (London):</span>
+                          <span className="font-bold text-primary text-sm">£12,006</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-gray-700">Living Costs (Outside London):</span>
-                          <span className="font-bold text-secondary text-lg">£9,207</span>
+                          <span className="text-gray-700 text-sm">Living Costs (Outside London):</span>
+                          <span className="font-bold text-secondary text-sm">£9,207</span>
                         </div>
                         <div className="pt-3 border-t border-gray-300">
                           <div className="flex justify-between items-center">
-                            <span className="text-gray-900 font-semibold">Must be held for:</span>
-                            <span className="font-bold text-gray-900">28 consecutive days</span>
+                            <span className="text-gray-900 font-semibold text-sm">Must be held for:</span>
+                            <span className="font-bold text-gray-900 text-sm">28 consecutive days</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-blue-50 border-l-4 border-primary rounded-r-xl p-6">
-                      <h4 className="font-bold text-gray-900 mb-2">💡 Important Note:</h4>
-                      <p className="text-gray-700">
+                      <h4 className="font-bold text-gray-900 mb-2 text-sm">💡 Important Note:</h4>
+                      <p className="text-gray-700 text-sm">
                         The funds must be in your account or your parent's/legal guardian's account for at least 28 consecutive days before you apply for your visa. The 28-day period must end no more than 31 days before you submit your visa application.
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
+                <div 
                   className="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
                 >
                   <img 
                     src={uk3} 
@@ -870,12 +906,12 @@ const Unitedkingdom = () => {
                     <h3 className="text-2xl font-bold mb-2">Financial Planning</h3>
                     <p className="text-white/90">Prepare your finances well in advance</p>
                   </div>
-        </motion.div>
+        </div>
       </div>
 
               {/* Financial Evidence Types */}
-              <div className="mb-16" data-aos="fade-up">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <div className="mb-16">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 text-center">
                   Acceptable Financial Evidence
                 </h2>
                 <div className="grid md:grid-cols-3 gap-6">
@@ -911,37 +947,30 @@ const Unitedkingdom = () => {
                       icon: <Shield className="w-8 h-8" />
                     }
                   ].map((option, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100"
-                      whileHover={{ y: -5 }}
                     >
                       <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center text-primary mb-4">
                         {option.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{option.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{option.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
               </div>
-            </motion.div>
+                      <h3 className="text-base font-bold text-gray-900 mb-2">{option.title}</h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">{option.description}</p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            </div>
           )}
 
           {activeCategory === "ENGLISH PROFICIENCY" && (
-            <motion.div
-              key="english-prof"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <motion.div data-aos="fade-right">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <div>
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6">
                     English Language Requirements
                   </h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-xs md:text-sm">
                     You are required to demonstrate your proficiency in the English language when you submit your application. You can prove your English language knowledge by:
                   </p>
                   
@@ -952,34 +981,29 @@ const Unitedkingdom = () => {
                       "Having a degree taught in English (from majority English-speaking country)",
                       "Being a national of a majority English-speaking country"
                     ].map((option, index) => (
-                      <motion.div
+                      <div
         key={index}
                         className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
                       >
                         <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                        <p className="text-gray-700">{option}</p>
-                      </motion.div>
+                        <p className="text-gray-700 text-xs">{option}</p>
+                      </div>
                     ))}
                   </div>
 
                   <div className="bg-gradient-to-br from-secondary/10 to-accent/10 rounded-xl p-6 border-2 border-secondary/20">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">CEFR Level Requirement:</h3>
-                    <p className="text-gray-700 mb-2">
+                    <h3 className="text-sm font-bold text-gray-900 mb-3">CEFR Level Requirement:</h3>
+                    <p className="text-gray-700 text-xs mb-2">
                       You must demonstrate English language skills in reading, writing, speaking, and understanding at a certain level on the Common European Framework of Reference for Languages (CEFR) scale.
                     </p>
-                    <p className="text-secondary font-bold text-lg">
+                    <p className="text-secondary font-bold text-sm">
                       Minimum: CEFR Level B2
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
+                <div 
                   className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
                 >
                   <img 
                     src={uk4} 
@@ -991,30 +1015,39 @@ const Unitedkingdom = () => {
                     <h3 className="text-2xl font-bold mb-2">Language Proficiency</h3>
                     <p className="text-white/90">Meet the English language requirements</p>
                   </div>
-                </motion.div>
-              </div>
+        </div>
+      </div>
 
               {/* English Tests */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center" data-aos="fade-up">
+                <style>{`
+                  .uk-english-tests-card,
+                  .uk-english-tests-card *,
+                  .uk-english-tests-card:hover,
+                  .uk-english-tests-card:hover * {
+                    transform: translateY(0) !important;
+                    transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+                    animation: none !important;
+                    top: auto !important;
+                    margin-top: 0 !important;
+                  }
+                `}</style>
+                <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-8 text-center">
                   Approved English Language Tests
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {englishProficiency.map((test, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       className="bg-white rounded-xl shadow-lg p-8 border border-gray-100"
-                      data-aos="fade-up"
-                      data-aos-delay={index * 100}
-                      whileHover={{ y: -5 }}
                     >
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-lg">
                           {index + 1}
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900">{test.test}</h3>
+                        <h3 className="text-base font-bold text-gray-900">{test.test}</h3>
                       </div>
-                      <div className="space-y-3 text-gray-700">
+                      <div className="space-y-3 text-gray-700 text-xs">
                         <div className="flex items-start gap-2">
                           <Award className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                           <div>
@@ -1037,158 +1070,26 @@ const Unitedkingdom = () => {
                           </div>
                         </div>
       </div>
-                    </motion.div>
+                    </div>
     ))}
   </div>
               </div>
 
               {/* Test Prep CTA */}
-              <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center" data-aos="fade-up">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                   Need English Test Preparation?
                 </h3>
-                <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+                <p className="text-white/90 text-sm mb-6 max-w-2xl mx-auto">
                   We offer comprehensive IELTS, TOEFL, and PTE coaching to help you achieve the required scores for your UK student visa.
                 </p>
-                <motion.button
-                  className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <button className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl transition-colors">
                   Enroll in Test Prep
-                </motion.button>
+                </button>
               </div>
-            </motion.div>
+            </div>
           )}
 
-          {activeCategory === "DOCUMENTS" && (
-            <motion.div
-              key="documents"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <motion.div data-aos="fade-right">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Complete Document Checklist
-                  </h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                    To apply for your Student visa, you will need to provide the following documents:
-                  </p>
-
-                  <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 border-2 border-primary/20 mb-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Mandatory Documents:</h3>
-                    <ul className="space-y-3">
-                      {[
-                        "A current passport or other valid travel documentation",
-                        "A Confirmation of Acceptance for Studies (CAS) from your course provider"
-                      ].map((doc, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <FaCheckCircle className="text-primary flex-shrink-0 mt-1" />
-                          <span className="text-gray-700">{doc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-blue-50 border-l-4 border-secondary rounded-r-xl p-6">
-                    <h4 className="font-bold text-gray-900 mb-3">Additional Documents You May Need:</h4>
-                    <ul className="space-y-2">
-                      {[
-                        "Proof of sufficient funds to support yourself and pay for your course",
-                        "A valid ATAS certificate if your course and nationality require it",
-                        "Proof of parental or legal guardian consent if you are under 18",
-                        "Proof of your relationship to your parent or guardian if under 18"
-                      ].map((doc, index) => (
-                        <li key={index} className="flex items-start gap-2 text-gray-700">
-                          <span className="text-secondary">•</span>
-                          <span>{doc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  data-aos="fade-left"
-                >
-                  <img 
-                    src={uk5} 
-                    alt="UK Visa Documents" 
-                    className="w-full h-[600px] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <h3 className="text-2xl font-bold mb-2">Complete Documentation</h3>
-                    <p className="text-white/90">Ensure all documents are properly prepared</p>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Visa Application Process */}
-              <div className="mb-16" data-aos="fade-up">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-                  Visa Application & Processing
-                </h2>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {[
-                    {
-                      title: "Application Fee",
-                      amount: "£363",
-                      description: "Standard student visa fee (outside UK)",
-                      icon: <FaPoundSign className="w-8 h-8" />
-                    },
-                    {
-                      title: "Healthcare Surcharge",
-                      amount: "£470/year",
-                      description: "Immigration Health Surcharge (IHS)",
-                      icon: <Heart className="w-8 h-8" />
-                    },
-                    {
-                      title: "Processing Time",
-                      amount: "3 weeks",
-                      description: "Standard processing from outside UK",
-                      icon: <Clock className="w-8 h-8" />
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 border-2 border-primary/20 text-center"
-                      whileHover={{ y: -5 }}
-                    >
-                      <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center text-primary mx-auto mb-4">
-                        {item.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <p className="text-3xl font-bold text-primary mb-2">{item.amount}</p>
-                      <p className="text-gray-600 text-sm">{item.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Expert Assistance CTA */}
-              <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center" data-aos="fade-up">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Complete Visa Application Support
-                </h3>
-                <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-                  From document preparation to visa interview coaching, we provide end-to-end support for your UK student visa application.
-                </p>
-                <motion.button
-                  className="bg-white text-primary px-10 py-4 rounded-lg font-bold hover:bg-gray-100 shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get Visa Assistance
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
     </div>
 
       {/* Bottom Components */}
