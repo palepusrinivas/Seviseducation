@@ -29,7 +29,7 @@ const routePaths = {
 
 const menuItems = [
   {
-    title: "STUDENT VISA",
+    title: " VISA",
     links: ["AUSTRALIA STUDENT VISA", "UNITED KINGDOM", "UNITED STATES OF AMERICA", "UNITED ARAB EMIRATES"],
   },
   {

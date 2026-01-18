@@ -188,52 +188,52 @@ const Footer = () => {
             <ul className="space-y-2.5">
                 <li>
                 <NavLink
-                    to="/Australiastudentvisa"
+                    to="/Immigration"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
-                    Student Visa Assistance
+                    Immigration
                 </NavLink>
               </li>
                 <li>
                 <NavLink
-                    to="/AustraliaUniversities"
+                    to="/DUOLINGO"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
-                    University Selection
+                   Duolingo
                 </NavLink>
               </li>
                 <li>
                 <NavLink
-                    to="/Contact"
+                    to="/IELTS"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
-                    Documentation Support
+                    IELTS
                 </NavLink>
               </li>
                 <li>
                 <NavLink
-                    to="/FreeConsultation"
+                    to="/UnitedStateofAmerica"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
-                    Visa Interview Prep
+                    USA University
                 </NavLink>
               </li>
                 <li>
                 <NavLink
-                    to="/about"
+                    to="/UnitedArabEmiratesUniversities"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
-                    Scholarship Guidance
+                    UAE University
                 </NavLink>
                 </li>
-                <li>
+                {/* <li>
                 <NavLink
                     to="/Contact"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
                     Free Assessment
                 </NavLink>
-                </li>
+                </li> */}
             </ul>
           </div>
 
@@ -259,10 +259,10 @@ const Footer = () => {
                 </li>
                 <li>
                 <NavLink
-                    to="/Australiastudentvisa"
+                    to="/UnitedArabEmiratesstudentvisa"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
-                    Study in Canada
+                    Study in UAE
                 </NavLink>
                 </li>
                 <li>
@@ -273,14 +273,14 @@ const Footer = () => {
                     Study in Australia
                 </NavLink>
                 </li>
-                <li>
+                {/* <li>
                 <NavLink
                     to="/USAUniversities"
                     className="text-sm text-gray-400 no-underline hover:text-white hover:translate-x-1 cursor-pointer transition-all duration-300 inline-block"
                 >
                     Top Universities
                 </NavLink>
-                </li>
+                </li> */}
                 <li>
                 <NavLink
                     to="/about"

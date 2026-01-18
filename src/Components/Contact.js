@@ -17,6 +17,7 @@ import {
   Users
 } from 'lucide-react';
 import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { submitToWeb3Forms } from '../utils/web3forms';
 
 import contact from "../assest/closeup-image-office-phone-min-scaled.jpg";
 import Scrolltotop from "./Scrolltotop";
@@ -34,36 +35,91 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [phoneError, setPhoneError] = useState('');
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true, easing: 'ease-out' });
   }, []);
 
+  // Phone number validation function - validates exactly 10 digits
+  const validatePhone = (phone) => {
+    // Remove all non-digit characters
+    const cleaned = phone.replace(/\D/g, '');
+    
+    if (!phone || phone.trim() === '') {
+      return 'Phone number is required';
+    }
+    if (cleaned.length !== 10) {
+      return 'Please enter a valid 10-digit phone number';
+    }
+    if (!/^\d{10}$/.test(cleaned)) {
+      return 'Please enter a valid 10-digit phone number';
+    }
+    return '';
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Validate phone number on change
+    if (name === 'phone') {
+      const error = validatePhone(value);
+      setPhoneError(error);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate phone number before submission
+    const phoneValidationError = validatePhone(formData.phone);
+    if (phoneValidationError) {
+      setPhoneError(phoneValidationError);
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate form submission (replace with actual Web3Forms or EmailJS)
-    setTimeout(() => {
-      setSubmitStatus('success');
+    try {
+      // Prepare form data for Web3Forms
+      const formDataToSend = {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        message: formData.message,
+      };
+
+      // Submit to Web3Forms API
+      const result = await submitToWeb3Forms(
+        formDataToSend,
+        `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`
+      );
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          country: '',
+          message: '',
+        });
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission failed:', error);
+      setSubmitStatus('error');
+    } finally {
       setIsSubmitting(false);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        country: '',
-        message: '',
-      });
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 2000);
+    }
   };
 
   const contactInfo = [
@@ -451,10 +507,15 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition-all duration-300"
-                      placeholder="+91 1234567890"
+                      className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 focus:outline-none transition-all duration-300 ${
+                        phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-primary'
+                      }`}
+                      placeholder="1234567890"
                     />
                   </div>
+                  {phoneError && (
+                    <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+                  )}
                 </div>
 
                 {/* Country Field */}

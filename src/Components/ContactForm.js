@@ -14,20 +14,53 @@ const ContactForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [phoneError, setPhoneError] = useState('');
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  // Phone number validation function - validates exactly 10 digits
+  const validatePhone = (phone) => {
+    // Remove all non-digit characters
+    const cleaned = phone.replace(/\D/g, '');
+    
+    if (!phone || phone.trim() === '') {
+      return 'Phone number is required';
+    }
+    if (cleaned.length !== 10) {
+      return 'Please enter a valid 10-digit phone number';
+    }
+    if (!/^\d{10}$/.test(cleaned)) {
+      return 'Please enter a valid 10-digit phone number';
+    }
+    return '';
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Validate phone number on change
+    if (name === 'phone') {
+      const error = validatePhone(value);
+      setPhoneError(error);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate phone number before submission
+    const phoneValidationError = validatePhone(formData.phone);
+    if (phoneValidationError) {
+      setPhoneError(phoneValidationError);
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Web3Forms integration
@@ -223,9 +256,14 @@ const ContactForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-300"
-                  placeholder="+91 1234567890"
+                  className={`w-full px-4 py-3 rounded-lg border-2 focus:outline-none transition-colors duration-300 ${
+                    phoneError ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-primary'
+                  }`}
+                  placeholder="1234567890"
                 />
+                {phoneError && (
+                  <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+                )}
               </div>
 
               {/* Destination Country */}

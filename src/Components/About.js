@@ -1781,7 +1781,7 @@ const FinalCTA = () => {
               </motion.button>
             </NavLink>
 
-            <NavLink to="/Contact">
+            {/* <NavLink to="/Contact">
               <motion.button
                 className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/30 hover:text-gray-900 transition-all duration-300 flex items-center gap-2 justify-center"
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -1790,7 +1790,7 @@ const FinalCTA = () => {
                 <Mail className="w-5 h-5" />
                 Contact Us
               </motion.button>
-            </NavLink>
+            </NavLink> */}
           </div>
 
           {/* Trust Indicators */}

@@ -5,6 +5,7 @@ import slider1 from "../assest/slider1.jpg";
 import slider2 from "../assest/slider2.jpg";
 import slider3 from "../assest/slider3.jpg";
 import slider4 from "../assest/student-doing-the-test-exam-2022-12-15-23-22-34-utc-min-scaled.jpg";
+import { NavLink } from "react-router-dom";
 
 
 const slides = [
@@ -310,10 +311,12 @@ export default function Hero() {
                     whileTap={{ scale: 0.97 }}
                     className="group relative px-6 md:px-8 py-3 md:py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm md:text-base rounded-lg overflow-hidden shadow-2xl hover:shadow-primary/60 transition-all duration-300"
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-2">
+                   <NavLink to="/Contact">
+                     <span className="relative z-10 flex items-center text-white justify-center gap-2">
                       Start Your Journey
                       <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
+                   </NavLink>
                     <motion.div
                       className="absolute inset-0 bg-white/20"
                       animate={{ x: ['-100%', '100%'] }}
@@ -321,13 +324,13 @@ export default function Hero() {
                     />
                   </motion.button>
                   
-                  <motion.button 
+                  {/* <motion.button 
                     whileHover={{ scale: 1.03, y: -2 }}
                     whileTap={{ scale: 0.97 }}
                     className="px-6 md:px-8 py-3 md:py-3.5 bg-white/10 backdrop-blur-lg text-white font-semibold text-sm md:text-base rounded-lg border-2 border-white/30 hover:border-white hover:bg-white/15 transition-all duration-300 shadow-lg"
                   >
                     Free Consultation
-                  </motion.button>
+                  </motion.button> */}
                 </motion.div>
 
                 {/* Extended Horizontal Line beneath buttons */}

@@ -5,6 +5,7 @@ import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { submitToWeb3Forms } from '../utils/web3forms';
 import { 
   CalendarDays, Phone, Mail, MapPin, CheckCircle, Star, 
   User, GraduationCap, Globe, Building2, Clock, Shield,
@@ -22,12 +23,24 @@ import ukBridge from "../assest/UK_Bridge-scaled.jpg";
 import Scrolltotop from "./Scrolltotop";
 import GetStarted from "./GetStrated";
 
+// Phone number validation function for Zod - validates exactly 10 digits
+const phoneNumberValidation = z.string()
+  .min(1, "Contact number is required")
+  .refine((phone) => {
+    // Remove all non-digit characters
+    const cleaned = phone.replace(/\D/g, '');
+    // Must be exactly 10 digits
+    return cleaned.length === 10 && /^\d{10}$/.test(cleaned);
+  }, {
+    message: "Please enter a valid 10-digit phone number"
+  });
+
 // Define Zod schema with enhanced validation
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
   lastName: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  contactNumber: z.string().min(10, "Please enter a valid 10-digit contact number"),
+  contactNumber: phoneNumberValidation,
   interestedCountry: z.string().min(1, "Please select a country"),
   interestOfStudy: z.string().min(1, "Please select your interest of study"),
   collegeOfGraduation: z.string().min(3, "College name must be at least 3 characters"),
@@ -94,11 +107,32 @@ const FreeConsultation = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Form submitted:", data);
-      setShowSuccess(true);
-      reset();
-      setTimeout(() => setShowSuccess(false), 5000);
+      // Prepare form data for Web3Forms
+      const formDataToSend = {
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        contactNumber: data.contactNumber,
+        interestedCountry: data.interestedCountry,
+        interestOfStudy: data.interestOfStudy,
+        collegeOfGraduation: data.collegeOfGraduation,
+        graduationDate: data.graduationDate,
+        preferredTime: data.preferredTime || 'Not specified',
+        message: data.message || 'No additional message',
+      };
+
+      // Submit to Web3Forms API
+      const result = await submitToWeb3Forms(
+        formDataToSend,
+        `New Free Consultation Request from ${data.firstName} ${data.lastName}`
+      );
+
+      if (result.success) {
+        setShowSuccess(true);
+        reset();
+        setTimeout(() => setShowSuccess(false), 5000);
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting application. Please try again.");
@@ -589,7 +623,7 @@ const FormSection = ({ register, handleSubmit, onSubmit, errors, isSubmitting, s
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all ${
                         errors.contactNumber ? "border-red-500" : "border-gray-200 focus:border-primary"
                       }`}
-                      placeholder="+91 XXXXX XXXXX"
+                      placeholder="1234567890"
                     />
                     {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber.message}</p>}
                   </div>
